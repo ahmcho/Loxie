@@ -21,7 +21,7 @@ namespace Loxie
         string keyword2 = "@";
         string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)+"\\config.loxie";
         int count = 0;
-        //========================================================UserInterface=======================================//
+        //=======================================================UserInterface=======================================//
         public Main()
         {
             if (!File.Exists(path))
