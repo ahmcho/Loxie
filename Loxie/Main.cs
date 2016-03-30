@@ -3068,7 +3068,6 @@ namespace Loxie
             "inside"});
             pagebreakType.Location = new System.Drawing.Point(73, 38);
             pagebreakType.Name = "pagebreakType";
-            pagebreakType.Text = "after";
             pagebreakType.Size = new System.Drawing.Size(66, 21);
             pagebreakType.SelectedIndexChanged += new System.EventHandler(this.pagebreakType_SelectedIndexChanged);
             pageBreakForm.Controls.Add(pagebreakType);
@@ -8591,7 +8590,10 @@ namespace Loxie
                     oZ = frm.Controls.OfType<GroupBox>().FirstOrDefault(y => y.Name == "transformOrigin").Controls.OfType<NumericUpDown>().FirstOrDefault(y => y.Name == "originZNUD").Value+"%";
                     break;
             }
-            textArea.SelectedText = string.Format("transform-origin: {0} {1} {2};\n",oX,oY,oZ);
+            if (oX != null && oY != null && oZ != null)
+            {
+                textArea.SelectedText = string.Format("transform-origin: {0} {1} {2};\n", oX, oY, oZ);
+            }
             frm.Close();
         }
         private void originXMeasure_SelectedIndexChanged(object sender,EventArgs e)
@@ -8691,7 +8693,10 @@ namespace Loxie
         {
             var ctrl = (Control)sender;
             var frm = ctrl.FindForm();
-            textArea.SelectedText = string.Format("page-break-{0}: {1};\n", frm.Controls.OfType<ComboBox>().FirstOrDefault(y => y.Name == "pagebreakType").SelectedItem, frm.Controls.OfType<ListBox>().FirstOrDefault(y => y.Name == "pagebreakVal").SelectedItem);
+            if (frm.Controls.OfType<ComboBox>().FirstOrDefault(y => y.Name == "pagebreakType").SelectedItem != null && frm.Controls.OfType<ListBox>().FirstOrDefault(y => y.Name == "pagebreakVal").SelectedItem != null)
+            {
+                textArea.SelectedText = string.Format("page-break-{0}: {1};\n", frm.Controls.OfType<ComboBox>().FirstOrDefault(y => y.Name == "pagebreakType").SelectedItem, frm.Controls.OfType<ListBox>().FirstOrDefault(y => y.Name == "pagebreakVal").SelectedItem);
+            }
             frm.Close();
         }
         private void pageBreakCancel_Click(object sender,EventArgs e)
@@ -8748,7 +8753,10 @@ namespace Loxie
         {
             var ctrl = (Control)sender;
             var frm = ctrl.FindForm();
-            textArea.SelectedText = string.Format("{0}: {1};\n", frm.Controls.OfType<ListBox>().FirstOrDefault(y => y.Name == "overflows").SelectedItem, frm.Controls.OfType<ComboBox>().FirstOrDefault(y => y.Name == "overflowData").SelectedItem);
+            if (frm.Controls.OfType<ListBox>().FirstOrDefault(y => y.Name == "overflows").SelectedItem != null && frm.Controls.OfType<ComboBox>().FirstOrDefault(y => y.Name == "overflowData").SelectedItem != null)
+            {
+              textArea.SelectedText = string.Format("{0}: {1};\n", frm.Controls.OfType<ListBox>().FirstOrDefault(y => y.Name == "overflows").SelectedItem, frm.Controls.OfType<ComboBox>().FirstOrDefault(y => y.Name == "overflowData").SelectedItem);
+            }
             frm.Close();
         }
         private void overflowCancel_Click(object sender,EventArgs e)
@@ -8998,8 +9006,14 @@ namespace Loxie
                         textArea.SelectedText = string.Format("column-rule-width: {0};\n", frm.Controls.OfType<GroupBox>().FirstOrDefault(y => y.Name == "columnRulEGBox").Controls.OfType<ComboBox>().FirstOrDefault(y => y.Name == "columnRuleWidthStyle").SelectedItem);
                         break;
                }
-            textArea.SelectedText = string.Format("column-rule-style: {0};\n", frm.Controls.OfType<GroupBox>().FirstOrDefault(y => y.Name == "columnRulEGBox").Controls.OfType<ComboBox>().FirstOrDefault(y => y.Name == "columnrulestyle").SelectedItem);
-            textArea.SelectedText = string.Format("column-rule-color: {0};\n", frm.Controls.OfType<GroupBox>().FirstOrDefault(y => y.Name == "columnRulEGBox").Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "columnColor").Text);
+            if(frm.Controls.OfType<GroupBox>().FirstOrDefault(y => y.Name == "columnRulEGBox").Controls.OfType<ComboBox>().FirstOrDefault(y => y.Name == "columnrulestyle").SelectedItem != null)
+            {
+                textArea.SelectedText = string.Format("column-rule-style: {0};\n", frm.Controls.OfType<GroupBox>().FirstOrDefault(y => y.Name == "columnRulEGBox").Controls.OfType<ComboBox>().FirstOrDefault(y => y.Name == "columnrulestyle").SelectedItem);
+            }
+            if(frm.Controls.OfType<GroupBox>().FirstOrDefault(y => y.Name == "columnRulEGBox").Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "columnColor").Text != String.Empty)
+            {
+                textArea.SelectedText = string.Format("column-rule-color: {0};\n", frm.Controls.OfType<GroupBox>().FirstOrDefault(y => y.Name == "columnRulEGBox").Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "columnColor").Text);
+            }
             frm.Close();
         }
         private void columnCancel_Click(object sender,EventArgs e)
@@ -9706,8 +9720,11 @@ namespace Loxie
             {
                 measure2 = "%";
             }
-            textArea.SelectedText = string.Format("{0}: {1}{2};\n", selectedHeight, number1,measure1);
-            textArea.SelectedText = string.Format("{0}: {1}{2};\n", selectedWeight, number2, measure2);
+            if (selectedHeight != null && selectedWeight != null)
+            {
+                textArea.SelectedText = string.Format("{0}: {1}{2};\n", selectedHeight, number1, measure1);
+                textArea.SelectedText = string.Format("{0}: {1}{2};\n", selectedWeight, number2, measure2);
+            }
             frm.Close();
         }
         private void heightM_SelectedIndexChanged(object sender,EventArgs e)
@@ -10499,7 +10516,6 @@ namespace Loxie
                     timeDTP = (DateTimePicker)ctr;
                     if (timeDTP.Name == "date" && timeDTP.Value != null)
                     {
-                        //timeDTP.CustomFormat = "yyyy-M-d";
                         textArea.SelectedText = string.Format(" datetime=\"{0}\">{0} ", timeDTP.Value.ToString("yyyy-M-d"));
                     }
                 }
@@ -10514,6 +10530,7 @@ namespace Loxie
                 }
             }
             textArea.SelectedText = "</time>\n";
+            frm.Close();
         }
         private void timeCheck_CheckedChanged(object sender, EventArgs e)
         {
@@ -10662,7 +10679,7 @@ namespace Loxie
                     }
                 }
             }
-            textArea.SelectedText = ">\n";
+            textArea.SelectedText = "></iframe>\n";
             frm.Close();
         }
         private void iframeObjPrototype_Paint(object sender, PaintEventArgs e)
@@ -11062,7 +11079,7 @@ namespace Loxie
                 if (ctr is TextBox)
                 {
                     dataTxt = (TextBox)ctr;
-                    if (dataTxt.Name == "inputListID" && dataTxt.Text != String.Empty)
+                    if (dataTxt.Name == "inputListID")
                     {
                         textArea.SelectedText = string.Format(" id=\"{0}\">\n", dataTxt.Text);
                     }
@@ -11072,13 +11089,6 @@ namespace Loxie
                         textArea.SelectedText = string.Format("<option value=\"{0}\">{0}</option>\n", dataTxt.Text);
                     }
                     else
-                    //    for (int count=1;count>9;count++)
-                    //   {
-                    //        if (dataTxt.Name == string.Format("txt{0}",cou) && dataTxt.Text != String.Empty)
-                    //        {
-                    //            textArea.SelectedText = string.Format("<option value=\"{0}\">\n", dataTxt.Text);
-                    //       }
-                    //   }
                     if (dataTxt.Name == "txt1" && dataTxt.Text != String.Empty)
                     {
                         textArea.SelectedText = string.Format("<option value=\"{0}\">{0}</option>\n", dataTxt.Text);
@@ -11285,6 +11295,7 @@ namespace Loxie
                 }
             }
             textArea.SelectedText = "></output>\n";
+            frm.Close();
         }
         private void inputCancel_Click(object sender, EventArgs e)
         {
@@ -11589,7 +11600,7 @@ namespace Loxie
                 if (ctr is TextBox)
                 {
                     hiddentext = (TextBox)ctr;
-                    if (hiddentext.Name == "hiddenName")
+                    if (hiddentext.Name == "hiddenName" && hiddentext.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format("<summary>{0}</summary>\n", hiddentext.Text);
@@ -11598,7 +11609,7 @@ namespace Loxie
                 if (ctr is RichTextBox)
                 {
                     hiddenrich = (RichTextBox)ctr;
-                    if (hiddenrich.Name == "hiddenTextVal")
+                    if (hiddenrich.Name == "hiddenTextVal" && hiddenrich.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format("<p>{0}</p>\n", hiddenrich.Text);
@@ -11645,19 +11656,19 @@ namespace Loxie
                 if (ctr is TextBox)
                 {
                     sometext2 = (TextBox)ctr;
-                    if (sometext2.Name == "videoWidthTxtVal")
+                    if (sometext2.Name == "videoWidthTxtVal" && sometext2.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format(" height=\"{0}\" ", sometext2.Text);
                     }
                     else
-                        if (sometext2.Name == "videoHeightTxtVal")
+                        if (sometext2.Name == "videoHeightTxtVal" && sometext2.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format(" width=\"{0}\" ", sometext2.Text);
                     }
                     else
-                         if (sometext2.Name == "posterURL")
+                         if (sometext2.Name == "posterURL" && sometext2.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format(" poster=\"{0}\" ", sometext2.Text);
@@ -11672,7 +11683,7 @@ namespace Loxie
                 if (ctr is RichTextBox)
                 {
                     sometext = (RichTextBox)ctr;
-                    if (sometext.Name == "videoURL")
+                    if (sometext.Name == "videoURL" && sometext.Text != String.Empty)
                     {
                         if (sometext.Find(".mp4") != -1)
                         {
@@ -11918,25 +11929,25 @@ namespace Loxie
                 if (ctr is TextBox)
                 {
                     resultextbox = (TextBox)ctr;
-                    if (resultextbox.Name == "btnNameVal")
+                    if (resultextbox.Name == "btnNameVal" && resultextbox.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format("name=\"{0}\" ", resultextbox.Text);
                     }
                     else
-                        if (resultextbox.Name == "valueVal")
+                        if (resultextbox.Name == "valueVal" && resultextbox.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format("value=\"{0}\" ", resultextbox.Text);
                     }
                     else
-                        if (resultextbox.Name == "formIDVal")
+                        if (resultextbox.Name == "formIDVal" && resultextbox.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format("form=\"{0}\" ", resultextbox.Text);
                     }
                     else
-                        if (resultextbox.Name == "formURLVal")
+                        if (resultextbox.Name == "formURLVal" && resultextbox.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format("formaction=\"{0}\" ", resultextbox.Text);
@@ -11989,19 +12000,19 @@ namespace Loxie
 
                     resultcombobox = (ComboBox)ctr;
                     object selectedItem = resultcombobox.SelectedItem;
-                    if (resultcombobox.Name == "formmethodVal")
+                    if (resultcombobox.Name == "formmethodVal" && resultcombobox.SelectedItem != null)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format("formmethod=\"{0}\" ", selectedItem);
                     }
                     else
-                        if (resultcombobox.Name == "btnTypeVal")
+                        if (resultcombobox.Name == "btnTypeVal" && resultcombobox.SelectedItem != null)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format("type=\"{0}\" ", selectedItem);
                     }
                     else
-                        if (resultcombobox.Name == "formtargetVal")
+                        if (resultcombobox.Name == "formtargetVal" && resultcombobox.SelectedItem != null)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format("formtarget=\"{0}\" ", selectedItem);
@@ -12053,7 +12064,7 @@ namespace Loxie
                 if (ctr is TextBox)
                 {
                     smtX = (TextBox)ctr;
-                    if (smtX.Name == "colorVal")
+                    if (smtX.Name == "colorVal" && smtX.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format("{0} ", smtX.Text);
@@ -12167,7 +12178,7 @@ namespace Loxie
                 if (ctr is TextBox)
                 {
                     textBoxOpacity = (TextBox)ctr;
-                    if (textBoxOpacity.Name == "opacityVal")
+                    if (textBoxOpacity.Name == "opacityVal" && textBoxOpacity.Text != String.Empty)
                     {
 
                         double val = double.Parse(textBoxOpacity.Text);
@@ -12428,13 +12439,13 @@ namespace Loxie
                 if (ctr is TextBox)
                 {
                     textBoxZ = (TextBox)ctr;
-                    if (textBoxZ.Name == "widthVal") //w=h h=w
+                    if (textBoxZ.Name == "widthVal" && textBoxZ.Text != String.Empty) 
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format(" height=\"{0}\" ",textBoxZ.Text);
                      }
                     else
-                        if(textBoxZ.Name =="heigthVal")
+                        if(textBoxZ.Name =="heigthVal" && textBoxZ.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format(" weight=\"{0}\" ",textBoxZ.Text);
@@ -12444,7 +12455,7 @@ namespace Loxie
                 if (ctr is RichTextBox)
                 {
                     ytblink = (RichTextBox)ctr;
-                    if(ytblink.Name == "ytbLink")
+                    if(ytblink.Name == "ytbLink" && ytblink.Text != String.Empty)
                     {
                         
                             textArea.SelectionLength = 0;
@@ -12610,7 +12621,9 @@ namespace Loxie
         }
         private void əlaqəToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("mailto:mcafeahmed@gmail.com");
+            Clipboard.SetText("mcafeahmed@gmail.com");
+            MessageBox.Show("Email copied to clipboard!","Contact");
+            //System.Diagnostics.Process.Start("mailto:mcafeahmed@gmail.com");
         }
         private void kesenxettBtn_Click(object sender, EventArgs e)
         {
@@ -12636,19 +12649,19 @@ namespace Loxie
                 if (ctr is TextBox)
                 {
                     txt4 = (TextBox)ctr;
-                    if (txt4.Name == "bgImgFileName")
+                    if (txt4.Name == "bgImgFileName" && txt4.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format(" background=\"{0}\" ", txt4.Text);
                     }
                     else
-                    if (txt4.Name == "tableColorCode")
+                    if (txt4.Name == "tableColorCode" && txt4.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format(" bgcolor=\"{0}\" ", txt4.Text);
                     }
                     else
-                    if (txt4.Name == "tableBorderColorCode")
+                    if (txt4.Name == "tableBorderColorCode" && txt4.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format(" bordercolor=\"{0}\" ", txt4.Text);
@@ -12678,19 +12691,19 @@ namespace Loxie
                 if (ctr is NumericUpDown)
                 {
                     nud4 = (NumericUpDown)ctr;
-                    if (nud4.Name == "tableBorderSizeVal")
+                    if (nud4.Name == "tableBorderSizeVal" && nud4.Value != 0)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format(" border =\"{0}\" ", nud4.Value);
                     }
                     else
-                        if (nud4.Name == "tabCellPaddingVal")
+                        if (nud4.Name == "tabCellPaddingVal" && nud4.Value != 0)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format(" cellpadding=\"{0}\" ", nud4.Value);
                     }
                     else
-                        if (nud4.Name == "tableCellSpacingVal")
+                        if (nud4.Name == "tableCellSpacingVal" && nud4.Value != 0)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format(" cellspacing=\"{0}\" ", nud4.Value);
@@ -12706,7 +12719,7 @@ namespace Loxie
                 if (ctr is TextBox)
                 {
                     txt5 = (TextBox)ctr;
-                    if (txt5.Name == "tableName")
+                    if (txt5.Name == "tableName" && txt5.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format("<caption>{0}</caption>\n", txt5.Text);
@@ -12998,13 +13011,13 @@ namespace Loxie
                 if (ctr is TextBox)
                 {
                     textboxX = (TextBox)ctr;
-                    if (textboxX.Name == "formNameVal")
+                    if (textboxX.Name == "formNameVal" && textboxX.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format(" name=\"{0}\" ", textboxX.Text);
                     }
                     else
-                    if (textboxX.Name == "actionFile")
+                    if (textboxX.Name == "actionFile" && textboxX.Text != String.Empty)
                     {
                         textArea.SelectionLength = 0;
                         textArea.SelectedText = string.Format(" action=\"{0}\" ", textboxX.Text);
@@ -13085,7 +13098,6 @@ namespace Loxie
                     }
                 
                 }
-
             }
             textArea.SelectionLength = 0;
             textArea.SelectedText = "> \n";
@@ -13279,7 +13291,7 @@ namespace Loxie
                 if (ctr is TextBox)
                 {
                     txt1 = (TextBox)ctr;
-                    if (txt1.Name == "colorCode")
+                    if (txt1.Name == "colorCode" && txt1.Text != String.Empty)
                     {
                         textArea.SelectedText = string.Format("border-color: {0}; \n",txt1.Text);
                     }
