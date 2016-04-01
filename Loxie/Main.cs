@@ -7710,7 +7710,7 @@ namespace Loxie
         private void haqqindaTSMI_Click(object sender, EventArgs e)
         {
             Form about = new Form();
-            about.Size = new Size(482, 172);
+            about.Size = new Size(482, 141);
             about.Name = "about";
             about.Text = "About";
             about.ShowInTaskbar = false;
@@ -7720,25 +7720,19 @@ namespace Loxie
             about.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             about.Show();
 
-            Button aboutOK = new Button();
-            aboutOK.Location = new System.Drawing.Point(379, 103);
-            aboutOK.Size = new System.Drawing.Size(75, 23);
-            aboutOK.Text = "OK";
-            aboutOK.Click += new EventHandler(this.aboutOK_Click);
-            about.Controls.Add(aboutOK);
-
             Panel aboutPanel = new Panel();
             aboutPanel.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             aboutPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             aboutPanel.Location = new System.Drawing.Point(0, 0);
-            aboutPanel.Size = new System.Drawing.Size(465, 92);
+            aboutPanel.Size = new System.Drawing.Size(466, 103);
             about.Controls.Add(aboutPanel);
 
             PictureBox aboutImage = new PictureBox();
             aboutImage.Image = global::Loxie.Properties.Resources.loxie_cover;
             aboutImage.Location = new System.Drawing.Point(-1, -1);
-            aboutImage.Size = new System.Drawing.Size(251, 92);
+            aboutImage.Size = new System.Drawing.Size(236, 103);
             aboutImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            aboutImage.Click += new System.EventHandler(this.aboutImage_Click);
             aboutPanel.Controls.Add(aboutImage);
 
             Label label1 = new Label();
@@ -7764,6 +7758,12 @@ namespace Loxie
         }
         //=======================================UserInterface================================================//
         //=======================================Button Clicks===============================================//
+        private void aboutImage_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            frm.Close();
+        }
         private void phpEchoOk_Click(object sender,EventArgs e)
         {
             var ctrl = (Control)sender;
@@ -14441,6 +14441,7 @@ namespace Loxie
             textArea.SelectionStart = endPlace;
             count = 0;
         }
+              
         //=========================================Button Clicks===============================================//
 
     }

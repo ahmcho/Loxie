@@ -344,7 +344,7 @@
             this.haqqindaTSMI.BackColor = System.Drawing.Color.Transparent;
             this.haqqindaTSMI.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.haqqindaTSMI.Name = "haqqindaTSMI";
-            this.haqqindaTSMI.Size = new System.Drawing.Size(120, 22);
+            this.haqqindaTSMI.Size = new System.Drawing.Size(152, 22);
             this.haqqindaTSMI.Text = "About";
             this.haqqindaTSMI.Click += new System.EventHandler(this.haqqindaTSMI_Click);
             // 
@@ -353,7 +353,7 @@
             this.əlaqəToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             this.əlaqəToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.əlaqəToolStripMenuItem.Name = "əlaqəToolStripMenuItem";
-            this.əlaqəToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.əlaqəToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.əlaqəToolStripMenuItem.Text = "Contact";
             this.əlaqəToolStripMenuItem.Click += new System.EventHandler(this.əlaqəToolStripMenuItem_Click);
             // 
@@ -502,7 +502,7 @@
             this.listBox2.DoubleClick += new System.EventHandler(this.listBox2_DoubleClick);
             this.listBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox2_KeyDown);
             // 
-            // Form1
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -520,7 +520,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loxie";
             this.Load += new System.EventHandler(this.Form1_Load);
