@@ -59,8 +59,6 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.htmlSave = new System.Windows.Forms.SaveFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.browserWindow = new System.Windows.Forms.WebBrowser();
-            this.textArea = new System.Windows.Forms.RichTextBox();
             this.imageOpen = new System.Windows.Forms.OpenFileDialog();
             this.audioOpen = new System.Windows.Forms.OpenFileDialog();
             this.phpSave = new System.Windows.Forms.SaveFileDialog();
@@ -69,7 +67,12 @@
             this.syntax = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.listBox2 = new System.Windows.Forms.ListBox();
+            this.TandB = new System.Windows.Forms.TableLayoutPanel();
+            this.textArea = new System.Windows.Forms.RichTextBox();
+            this.browserWindow = new System.Windows.Forms.WebBrowser();
+            this.loadStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
+            this.TandB.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -79,7 +82,8 @@
             this.fileToolStripMenuItem1,
             this.editToolStripMenuItem,
             this.toolsToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.helpToolStripMenuItem,
+            this.loadStyleToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
@@ -344,7 +348,7 @@
             this.haqqindaTSMI.BackColor = System.Drawing.Color.Transparent;
             this.haqqindaTSMI.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.haqqindaTSMI.Name = "haqqindaTSMI";
-            this.haqqindaTSMI.Size = new System.Drawing.Size(152, 22);
+            this.haqqindaTSMI.Size = new System.Drawing.Size(120, 22);
             this.haqqindaTSMI.Text = "About";
             this.haqqindaTSMI.Click += new System.EventHandler(this.haqqindaTSMI_Click);
             // 
@@ -353,7 +357,7 @@
             this.əlaqəToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             this.əlaqəToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.əlaqəToolStripMenuItem.Name = "əlaqəToolStripMenuItem";
-            this.əlaqəToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.əlaqəToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.əlaqəToolStripMenuItem.Text = "Contact";
             this.əlaqəToolStripMenuItem.Click += new System.EventHandler(this.əlaqəToolStripMenuItem_Click);
             // 
@@ -366,26 +370,6 @@
             // 
             this.htmlSave.FileName = "New";
             this.htmlSave.Filter = "HMTL files| *.html|HTM files| *.htm";
-            // 
-            // browserWindow
-            // 
-            this.browserWindow.Location = new System.Drawing.Point(508, 183);
-            this.browserWindow.MinimumSize = new System.Drawing.Size(20, 20);
-            this.browserWindow.Name = "browserWindow";
-            this.browserWindow.Size = new System.Drawing.Size(482, 430);
-            this.browserWindow.TabIndex = 5;
-            // 
-            // textArea
-            // 
-            this.textArea.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textArea.Location = new System.Drawing.Point(12, 183);
-            this.textArea.Name = "textArea";
-            this.textArea.Size = new System.Drawing.Size(490, 430);
-            this.textArea.TabIndex = 6;
-            this.textArea.Text = "";
-            this.textArea.TextChanged += new System.EventHandler(this.textArea_TextChanged);
-            this.textArea.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textArea_KeyDown);
-            this.textArea.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textArea_KeyPress);
             // 
             // imageOpen
             // 
@@ -413,6 +397,7 @@
             // 
             // syntax
             // 
+            this.syntax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.syntax.AutoSize = true;
             this.syntax.BackColor = System.Drawing.Color.Transparent;
             this.syntax.Location = new System.Drawing.Point(902, 4);
@@ -473,7 +458,7 @@
             ":-ms-fill",
             ":-ms-reveal",
             ":-ms-value"});
-            this.listBox1.Location = new System.Drawing.Point(73, 234);
+            this.listBox1.Location = new System.Drawing.Point(377, 114);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(120, 84);
             this.listBox1.TabIndex = 31;
@@ -494,7 +479,7 @@
             "media",
             "page",
             "viewport"});
-            this.listBox2.Location = new System.Drawing.Point(73, 325);
+            this.listBox2.Location = new System.Drawing.Point(377, 205);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(120, 84);
             this.listBox2.TabIndex = 32;
@@ -502,17 +487,66 @@
             this.listBox2.DoubleClick += new System.EventHandler(this.listBox2_DoubleClick);
             this.listBox2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox2_KeyDown);
             // 
+            // TandB
+            // 
+            this.TandB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TandB.BackColor = System.Drawing.Color.Transparent;
+            this.TandB.ColumnCount = 2;
+            this.TandB.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TandB.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TandB.Controls.Add(this.textArea, 0, 0);
+            this.TandB.Controls.Add(this.browserWindow, 1, 0);
+            this.TandB.Location = new System.Drawing.Point(12, 110);
+            this.TandB.Name = "TandB";
+            this.TandB.RowCount = 1;
+            this.TandB.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TandB.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 503F));
+            this.TandB.Size = new System.Drawing.Size(978, 503);
+            this.TandB.TabIndex = 41;
+            // 
+            // textArea
+            // 
+            this.textArea.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textArea.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textArea.Location = new System.Drawing.Point(3, 3);
+            this.textArea.Name = "textArea";
+            this.textArea.Size = new System.Drawing.Size(483, 497);
+            this.textArea.TabIndex = 35;
+            this.textArea.Text = "";
+            // 
+            // browserWindow
+            // 
+            this.browserWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.browserWindow.Location = new System.Drawing.Point(492, 3);
+            this.browserWindow.MinimumSize = new System.Drawing.Size(20, 20);
+            this.browserWindow.Name = "browserWindow";
+            this.browserWindow.Size = new System.Drawing.Size(483, 497);
+            this.browserWindow.TabIndex = 34;
+            // 
+            // loadStyleToolStripMenuItem
+            // 
+            this.loadStyleToolStripMenuItem.Font = new System.Drawing.Font("Palatino Linotype", 9F);
+            this.loadStyleToolStripMenuItem.Name = "loadStyleToolStripMenuItem";
+            this.loadStyleToolStripMenuItem.Size = new System.Drawing.Size(78, 21);
+            this.loadStyleToolStripMenuItem.Text = "Load style";
+            this.loadStyleToolStripMenuItem.Click += new System.EventHandler(this.loadStyleToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Loxie.Properties.Resources._2Nrxex6;
             this.ClientSize = new System.Drawing.Size(1002, 625);
+            this.Controls.Add(this.TandB);
             this.Controls.Add(this.listBox2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.syntax);
-            this.Controls.Add(this.textArea);
-            this.Controls.Add(this.browserWindow);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -526,6 +560,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.TandB.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -555,8 +590,6 @@
         private System.Windows.Forms.ToolStripMenuItem haqqindaTSMI;
         private System.Windows.Forms.ToolStripMenuItem setirTSMİ;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private System.Windows.Forms.WebBrowser browserWindow;
-        private System.Windows.Forms.RichTextBox textArea;
         private System.Windows.Forms.ToolStripMenuItem achTSMI;
         private System.Windows.Forms.ToolStripMenuItem əlaqəToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog imageOpen;
@@ -573,6 +606,10 @@
         private System.Windows.Forms.Label syntax;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.TableLayoutPanel TandB;
+        private System.Windows.Forms.RichTextBox textArea;
+        private System.Windows.Forms.WebBrowser browserWindow;
+        private System.Windows.Forms.ToolStripMenuItem loadStyleToolStripMenuItem;
     }
 }
 

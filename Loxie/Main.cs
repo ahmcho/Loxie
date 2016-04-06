@@ -66,96 +66,30 @@ namespace Loxie
         {
             browserWindow.DocumentText = textArea.Text;
         }
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var ctrl = (Control)sender;
-            var frm = ctrl.FindForm();
-            ListBox listBox1 = null;
-            foreach (var ctr in frm.Controls)
-            {
-                if (ctr is ListBox)
-                {
-                    listBox1 = (ListBox)ctr;
-                    if (listBox1.Name == "listBox1")
-                    {
-                        int header = listBox1.SelectedIndex;
-                        switch (header)
-                        {
-                            case 0:
-                                textArea.SelectionLength = 0;
-                                textArea.SelectedText = "<h1> H1 header </h1> ";
-                                break;
-                            case 1:
-                                textArea.SelectionLength = 0;
-                                textArea.SelectedText = "<h2> H2 header </h2> ";
-                                break;
-                            case 2:
-                                textArea.SelectionLength = 0;
-                                textArea.SelectedText = "<h3> H3 header </h3> ";
-                                break;
-                            case 3:
-                                textArea.SelectionLength = 0;
-                                textArea.SelectedText = "<h4> H4 header </h4> ";
-                                break;
-                            case 4:
-                                textArea.SelectionLength = 0;
-                                textArea.SelectedText = "<h5> H5 header </h5> ";
-                                break;
-                            case 5:
-                                textArea.SelectionLength = 0;
-                                textArea.SelectedText = "<h6> H6 header </h6>";
-                                break;
-                        }
-                    }
-                }
-            }
-        }
-        private void listTypes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var ctrl = (Control)sender;
-            var frm = ctrl.FindForm();
-            ListBox listTypes = null;
-            foreach (var ctr in frm.Controls)
-            {
-                if (ctr is ListBox)
-                {
-                    listTypes = (ListBox)ctr;
-                    if (listTypes.Name == "listTypes")
-                    {
-                        int list_type = listTypes.SelectedIndex;
-                        switch (list_type)
-                        {
-                            case 0:
-                                textArea.SelectionLength = 0;
-                                textArea.SelectedText = "<ol><li>Ordered 1</li>" + "<li>Ordered 2</li>" + "<li>Ordered 3 </li>" + "</ol>";
-                                break;
-                            case 1:
-                                textArea.SelectionLength = 0;
-                                textArea.SelectedText = "<ul><li>Unordered 1</li>" + "<li>Unordered 2</li>" + "<li>Unordered 3 </li>" + "</ul>";
-                                break;
-                            default:
-                                textArea.SelectionLength = 0;
-                                textArea.SelectedText = "<ol><li>Simple text</li></ol>";
-                                break;
-                        }
-                    }
-                }
-            }
-        }
         private void htmlTemplate()
         {
+            TandB.ColumnCount = 2;
+            TandB.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            TandB.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TandB.Location = new Point(12, 110);
+            if (this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu") != null )
+            {
+                this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu").Dispose();
+            }
             for (int i = this.Controls.Count - 1; i >= 0; i--)
             {
                 Button control = this.Controls[i] as Button;
-                if (control == null)
+                //ListBox control1 = this.Controls[i] as ListBox;
+
+                if (control == null)// && control1 == null)
                     continue;
                 control.Visible = false;
                 control.Dispose();
+                //control1.Dispose();
             }
             textArea.Clear();
             textArea.AppendText("<html>  \n");
             textArea.AppendText("<head> \r \n");
-
             textArea.AppendText("<title>A website</title> \n");
             textArea.AppendText("<meta http-equiv=\"Content - Type\" content=\"text / html; charset = utf - 8\"> \n");
             textArea.AppendText("\n");
@@ -169,502 +103,849 @@ namespace Loxie
             textArea.AppendText("</footer> \n");
             textArea.AppendText("</body> \n");
             textArea.AppendText("</html> \n");
-
-            Label label1 = new Label();
-            label1.Size = new Size(35, 13);
-            label1.Location = new Point(50, 28);
-            label1.Text = "Text";
-            label1.Name = "label1";
-            label1.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            label1.BackColor = Color.Transparent;
-            this.Controls.Add(label1);
-
-            Label lists = new Label();
-            lists.Size = new Size(66, 16);
-            lists.Location = new Point(150, 28);
-            lists.Text = "Lists";
-            lists.Name = "lists";
-            lists.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            lists.BackColor = Color.Transparent;
-            this.Controls.Add(lists);
-
-            ListBox listTypes = new ListBox();
-            listTypes.Name = "listTypes";
-            listTypes.Size = new Size(86, 52);
-            listTypes.Location = new Point(135, 52);
-            listTypes.Items.Add("<ol>");
-            listTypes.Items.Add("<ul>");
-            listTypes.SelectedIndexChanged += new System.EventHandler(this.listTypes_SelectedIndexChanged);
-            this.Controls.Add(listTypes);
-
-            Label label2 = new Label();
-            label2.Text = "Headers";
-            label2.Name = "label2";
-            label2.Size = new Size(66, 16);
-            label2.BackColor = Color.Transparent;
-            label2.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            label2.Location = new Point(268, 28);
-            this.Controls.Add(label2);
-
-            ListBox listBox1 = new ListBox();
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(84, 52);
-            listBox1.Location = new Point(254, 51);
-            listBox1.Items.Add("<h1>");
-            listBox1.Items.Add("<h2>");
-            listBox1.Items.Add("<h3>");
-            listBox1.Items.Add("<h4>");
-            listBox1.Items.Add("<h5>");
-            listBox1.Items.Add("<h6>");
-            listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-            this.Controls.Add(listBox1);
-
-            Label label3 = new Label();
-            label3.Text = "Table";
-            label3.Name = "label3";
-            label3.Size = new Size(66, 16);
-            label3.Location = new Point(378, 28);
-            label3.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            label3.BackColor = Color.Transparent;
-            this.Controls.Add(label3);
-
-            Label label4 = new Label();
-            label4.Size = new Size(58, 20);
-            label4.Location = new Point(507, 28);
-            label4.Name = "label4";
-            label4.Text = "Info";
-            label4.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            label4.BackColor = Color.Transparent;
-            this.Controls.Add(label4);
-
-            Label label6 = new Label();
-            label6.Size = new Size(62, 20);
-            label6.Location = new Point(689, 28);
-            label6.Name = "label6";
-            label6.Text = "Data";
-            label6.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            label6.BackColor = Color.Transparent;
-            this.Controls.Add(label6);
-
-            Label label7 = new Label();
-            label7.Size = new Size(62, 20);
-            label7.Location = new Point(881, 28);
-            label7.Name = "label6";
-            label7.Text = "Other";
-            label7.Font = new System.Drawing.Font("Palatino Linotype", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            label7.BackColor = Color.Transparent;
-            this.Controls.Add(label7);
-
-            Button loadStyle = new Button();
-            loadStyle.Visible = true;
-            loadStyle.Text = "Load style";
-            loadStyle.Location = new Point(198, 157);
-            loadStyle.Size = new Size(75, 23);
-            this.Controls.Add(loadStyle);
-            loadStyle.Click += new System.EventHandler(this.loadStyle_Click);
-
-            Button yagliBtn = new Button();
-            yagliBtn.Visible = true;
-            yagliBtn.Text = "B";
-            yagliBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            yagliBtn.Size = new Size(27, 23);
-            yagliBtn.Location = new Point(14, 51);
-            this.Controls.Add(yagliBtn);
-            yagliBtn.Click += new System.EventHandler(this.yagliBtn_Click);
-
-            Button altdanxettBtn = new Button();
-            altdanxettBtn.Visible = true;
-            altdanxettBtn.Text = "U";
-            altdanxettBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            altdanxettBtn.Size = new Size(27, 23);
-            altdanxettBtn.Location = new Point(42, 51);
-            this.Controls.Add(altdanxettBtn);
-            altdanxettBtn.Click += new System.EventHandler(this.altdanxettBtn_Click);
-
-            Button paraqrafBtn = new Button();
-            paraqrafBtn.Visible = true;
-            paraqrafBtn.Text = "<p>";
-            paraqrafBtn.Size = new Size(50, 23);
-            paraqrafBtn.Location = new Point(70, 51);
-            this.Controls.Add(paraqrafBtn);
-            paraqrafBtn.Click += new System.EventHandler(this.paraqrafBtn_Click);
-
-            Button eyriBtn = new Button();
-            eyriBtn.Visible = true;
-            eyriBtn.Text = "I";
-            eyriBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            eyriBtn.Size = new Size(27, 23);
-            eyriBtn.Location = new Point(14, 80);
-            this.Controls.Add(eyriBtn);
-            eyriBtn.Click += new System.EventHandler(this.eyriBtn_Click);
-
-            Button kesenxettBtn = new Button();
-            kesenxettBtn.Visible = true;
-            kesenxettBtn.Text = "S";
-            kesenxettBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            kesenxettBtn.Size = new Size(27, 23);
-            kesenxettBtn.Location = new Point(42, 80);
-            this.Controls.Add(kesenxettBtn);
-            kesenxettBtn.Click += new System.EventHandler(this.kesenxettBtn_Click);
-
-            Button yeniSetirBtn = new Button();
-            yeniSetirBtn.Visible = true;
-            yeniSetirBtn.Text = "<br>";
-            //yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            yeniSetirBtn.Size = new Size(50, 23);
-            yeniSetirBtn.Location = new Point(70, 80);
-            this.Controls.Add(yeniSetirBtn);
-            yeniSetirBtn.Click += new System.EventHandler(this.yeniSetirBtn_Click);
-
-            Button spanButton = new Button();
-            spanButton.Visible = true;
-            spanButton.Text = "<span>";
-            //yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            spanButton.Size = new Size(55, 23);
-            spanButton.Location = new Point(14, 110);
-            this.Controls.Add(spanButton);
-            spanButton.Click += new System.EventHandler(this.spanButton_Click);
-
-            Button xettBtn = new Button();
-            xettBtn.Visible = true;
-            xettBtn.Text = "―";
-            //yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            xettBtn.Size = new Size(50, 23);
-            xettBtn.Location = new Point(70, 110);
-            this.Controls.Add(xettBtn);
-            xettBtn.Click += new System.EventHandler(this.xettBtn_Click);
-
-            Button subBtn = new Button();
-            subBtn.Visible = true;
-            subBtn.Text = "X₂";
-            //yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            subBtn.Size = new Size(27, 23);
-            subBtn.Location = new Point(14, 139);
-            this.Controls.Add(subBtn);
-            subBtn.Click += new System.EventHandler(this.subBtn_Click);
-
-            Button supBtn = new Button();
-            supBtn.Visible = true;
-            supBtn.Text = "X²";
-            //yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            supBtn.Size = new Size(27, 23);
-            supBtn.Location = new Point(41, 139);
-            this.Controls.Add(supBtn);
-            supBtn.Click += new System.EventHandler(this.supBtn_Click);
-
-            Button bdo = new Button();
-            bdo.Visible = true;
-            bdo.Text = "<bdo>";
-            bdo.Size = new Size(50, 23);
-            bdo.Location = new Point(70, 139);
-            bdo.Click += new System.EventHandler(this.bdo_Click);
-            this.Controls.Add(bdo);
-
-            Button cedvelBtn = new Button();
-            cedvelBtn.Visible = true;
-            cedvelBtn.Text = "<table>";
-            //yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            cedvelBtn.Size = new Size(82, 23);
-            cedvelBtn.Location = new Point(358, 52);
-            this.Controls.Add(cedvelBtn);
-            cedvelBtn.Click += new System.EventHandler(this.cedvelBtn_Click);
-
-            Button trBtn = new Button();
-            trBtn.Visible = true;
-            trBtn.Text = "<tr>";
-            //yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            trBtn.Size = new Size(38, 23);
-            trBtn.Location = new Point(358, 80);
-            this.Controls.Add(trBtn);
-            trBtn.Click += new System.EventHandler(this.trBtn_Click);
-
-            Button tdBtn = new Button();
-            tdBtn.Visible = true;
-            tdBtn.Text = "<td>";
-            //yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            tdBtn.Size = new Size(38, 23);
-            tdBtn.Location = new Point(402, 80);
-            this.Controls.Add(tdBtn);
-            tdBtn.Click += new System.EventHandler(this.tdBtn_Click);
-            label1.Visible = true;
-
-            Button textAreaBtn = new Button();
-            textAreaBtn.Visible = true;
-            textAreaBtn.Text = "text";
-            //yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            textAreaBtn.Size = new Size(48, 23);
-            textAreaBtn.Location = new Point(456, 51);
-            this.Controls.Add(textAreaBtn);
-            textAreaBtn.Click += new System.EventHandler(this.textAreaBtn_Click);
-
-            Button scriptBtn = new Button();
-            scriptBtn.Visible = true;
-            scriptBtn.Text = "code";
-            //yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            scriptBtn.Size = new Size(48, 23);
-            scriptBtn.Location = new Point(510, 51);
-            this.Controls.Add(scriptBtn);
-            scriptBtn.Click += new System.EventHandler(this.scriptBtn_Click);
-
-            Button commentBtn = new Button();
-            commentBtn.Visible = true;
-            commentBtn.Text = "<!-- -->";
-            //yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            commentBtn.Size = new Size(48, 23);
-            commentBtn.Location = new Point(456, 80);
-            this.Controls.Add(commentBtn);
-            commentBtn.Click += new System.EventHandler(this.commentBtn_Click);
-
-            Button imgBtn = new Button();
-            imgBtn.Visible = true;
-            imgBtn.Text = "image";
-            //yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            imgBtn.Size = new Size(48, 23);
-            imgBtn.Location = new Point(510, 80);
-            this.Controls.Add(imgBtn);
-            imgBtn.Click += new System.EventHandler(this.imgBtn_Click);
-
-            Button sitatBtn = new Button();
-            sitatBtn.Visible = true;
-            sitatBtn.Text = "quote";
-            //yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            sitatBtn.Size = new Size(48, 23);
-            sitatBtn.Location = new Point(456, 110);
-            this.Controls.Add(sitatBtn);
-            sitatBtn.Click += new System.EventHandler(this.sitatBtn_Click);
-
-            Button audioBtn = new Button();
-            audioBtn.Visible = true;
-            audioBtn.Text = "audio";
-            //yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            audioBtn.Size = new Size(48, 23);
-            audioBtn.Location = new Point(510, 110);
-            this.Controls.Add(audioBtn);
-            audioBtn.Click += new System.EventHandler(this.audioBtn_Click);
-
-            Button linkBtn = new Button();
-            linkBtn.Visible = true;
-            linkBtn.Text = "link";
-            //yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            linkBtn.Size = new Size(48, 23);
-            linkBtn.Location = new Point(456, 140);
-            this.Controls.Add(linkBtn);
-            linkBtn.Click += new System.EventHandler(this.linkBtn_Click);
-
-            Button divBtn = new Button();
-            divBtn.Visible = true;
-            divBtn.Text = "<div>";
-            //yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            divBtn.Size = new Size(48, 23);
-            divBtn.Location = new Point(510, 140);
-            this.Controls.Add(divBtn);
-            divBtn.Click += new System.EventHandler(this.divBtn_Click);
-
-            Button video = new Button();
-            video.Visible = true;
-            video.Location = new Point(563, 51);
-            video.Size = new Size(60, 23);
-            video.Text = "video";
-            this.Controls.Add(video);
-            video.Click += new System.EventHandler(this.video_Click);
-
-            Button abbreviature = new Button();
-            abbreviature.Visible = true;
-            abbreviature.Location = new Point(563, 80);
-            abbreviature.Size = new Size(60, 23);
-            abbreviature.Text = "abbr";
-            this.Controls.Add(abbreviature);
-            abbreviature.Click += new System.EventHandler(this.abbreviature_Click);
-
-            Button youtube = new Button();
-            youtube.Size = new Size(60, 23);
-            youtube.Location = new Point(563, 110);
-            youtube.Text = "youTube";
-            youtube.Visible = true;
-            this.Controls.Add(youtube);
-            youtube.Click += new System.EventHandler(this.youtube_Click);
-
+            //
+            // button
+            // 
             Button btn = new Button();
-            btn.Size = new Size(60, 23);
-            btn.Location = new Point(563, 140);
+            btn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            btn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            btn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            btn.Location = new System.Drawing.Point(697, 35);
+            btn.Name = "btn";
+            btn.Size = new System.Drawing.Size(64, 31);
             btn.Text = "button";
-            btn.Visible = true;
             btn.Click += new System.EventHandler(this.btn_Click);
-            this.Controls.Add(btn);
-
+            // 
+            // div
+            // 
+            Button divBtn = new Button();
+            divBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            divBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            divBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            divBtn.Location = new System.Drawing.Point(635, 35);
+            divBtn.Name = "divBtn";
+            divBtn.Size = new System.Drawing.Size(59, 31);
+            divBtn.Text = "<div>";
+            divBtn.Click += new System.EventHandler(this.divBtn_Click);
+            // 
+            // link
+            // 
+            Button linkBtn = new Button();
+            linkBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            linkBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            linkBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            linkBtn.Location = new System.Drawing.Point(577, 35);
+            linkBtn.Name = "linkBtn";
+            linkBtn.Size = new System.Drawing.Size(55, 31);
+            linkBtn.Text = "link";
+            linkBtn.Click += new System.EventHandler(this.linkBtn_Click);
+            // 
+            // youtube
+            // 
+            Button youtube = new Button();
+            youtube.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            youtube.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            youtube.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            youtube.Location = new System.Drawing.Point(505, 35);
+            youtube.Name = "youtube";
+            youtube.Size = new System.Drawing.Size(69, 31);
+            youtube.Text = "youtube";
+            youtube.Click += new System.EventHandler(this.youtube_Click);
+            // 
+            // audio
+            // 
+            Button audioBtn = new Button();
+            audioBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            audioBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            audioBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            audioBtn.Location = new System.Drawing.Point(446, 35);
+            audioBtn.Name = "audioBtn";
+            audioBtn.Size = new System.Drawing.Size(56, 31);
+            audioBtn.Text = "audio";
+            audioBtn.UseVisualStyleBackColor = true;
+            audioBtn.Click += new System.EventHandler(this.audioBtn_Click);
+            // 
+            // quote
+            // 
+            Button sitatBtn = new Button();
+            sitatBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            sitatBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            sitatBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            sitatBtn.Location = new System.Drawing.Point(381, 35);
+            sitatBtn.Name = "sitatBtn";
+            sitatBtn.Size = new System.Drawing.Size(62, 31);
+            sitatBtn.Text = "quote";
+            sitatBtn.Click += new System.EventHandler(this.sitatBtn_Click);
+            // 
+            // abbr
+            // 
+            Button abbreviature = new Button();
+            abbreviature.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            abbreviature.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            abbreviature.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            abbreviature.Location = new System.Drawing.Point(309, 35);
+            abbreviature.Name = "abbreviature";
+            abbreviature.Size = new System.Drawing.Size(69, 31);
+            abbreviature.Text = "abbr";
+            abbreviature.Click += new System.EventHandler(this.abbreviature_Click);
+            // 
+            // image
+            // 
+            Button imgBtn = new Button();
+            imgBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            imgBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            imgBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            imgBtn.Location = new System.Drawing.Point(247, 35);
+            imgBtn.Name = "imgBtn";
+            imgBtn.Size = new System.Drawing.Size(59, 31);
+            imgBtn.Text = "image";
+            imgBtn.UseVisualStyleBackColor = true;
+            imgBtn.Click += new System.EventHandler(this.imgBtn_Click);
+            // 
+            // comment
+            // 
+            Button commentBtn = new Button();
+            commentBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            commentBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            commentBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            commentBtn.Location = new System.Drawing.Point(193, 35);
+            commentBtn.Name = "commentBtn";
+            commentBtn.Size = new System.Drawing.Size(51, 31);
+            commentBtn.Text = "<! ->";
+            commentBtn.Click += new System.EventHandler(this.commentBtn_Click);
+            // 
+            // video
+            // 
+            Button video = new Button();
+            video.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            video.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            video.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            video.Location = new System.Drawing.Point(124, 35);
+            video.Name = "video";
+            video.Size = new System.Drawing.Size(66, 31);
+            video.Text = "video";
+            video.UseVisualStyleBackColor = true;
+            video.Click += new System.EventHandler(this.video_Click);
+            // 
+            // code
+            //
+            Button scriptBtn = new Button();
+            scriptBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            scriptBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            scriptBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            scriptBtn.Location = new System.Drawing.Point(61, 35);
+            scriptBtn.Name = "scriptBtn";
+            scriptBtn.Size = new System.Drawing.Size(60, 31);
+            scriptBtn.Text = "code";
+            scriptBtn.Click += new System.EventHandler(this.scriptBtn_Click);
+            // 
+            // text
+            // 
+            Button textAreaBtn = new Button();
+            textAreaBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            textAreaBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            textAreaBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            textAreaBtn.Location = new System.Drawing.Point(0, 35);
+            textAreaBtn.Name = "textAreaBtn";
+            textAreaBtn.Size = new System.Drawing.Size(58, 31);
+            textAreaBtn.Text = "text";
+            textAreaBtn.UseVisualStyleBackColor = true;
+            textAreaBtn.Click += new System.EventHandler(this.textAreaBtn_Click);
+            // 
+            // button14
+            // 
+            Button tdBtn = new Button();
+            tdBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            tdBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            tdBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            tdBtn.Location = new System.Drawing.Point(155, 35);
+            tdBtn.Name = "tdBtn";
+            tdBtn.Size = new System.Drawing.Size(61, 31);
+            tdBtn.Text = "<td>";
+            tdBtn.UseVisualStyleBackColor = true;
+            tdBtn.Click += new System.EventHandler(this.tdBtn_Click);
+            // 
+            // button13
+            // 
+            Button trBtn = new Button();
+            trBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            trBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            trBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            trBtn.Location = new System.Drawing.Point(91, 35);
+            trBtn.Name = "trBtn";
+            trBtn.Size = new System.Drawing.Size(61, 31);
+            trBtn.Text = "<tr>";
+            trBtn.UseVisualStyleBackColor = true;
+            trBtn.Click += new System.EventHandler(this.trBtn_Click);
+            // 
+            // button12
+            // 
+            Button tableButton = new Button();
+            tableButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            tableButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            tableButton.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            tableButton.Location = new System.Drawing.Point(0, 35);
+            tableButton.Name = "tableButton";
+            tableButton.Size = new System.Drawing.Size(88, 31);
+            tableButton.Text = "<table>";
+            tableButton.UseVisualStyleBackColor = true;
+            tableButton.Click += new System.EventHandler(this.tableButton_Click);
+            // 
+            // button27
+            // 
             Button baseButton = new Button();
-            baseButton.Size = new Size(53, 23);
-            baseButton.Location = new Point(640, 51);
+            baseButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            baseButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            baseButton.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            baseButton.Location = new System.Drawing.Point(0, 35);
+            baseButton.Name = "baseButton";
+            baseButton.Size = new System.Drawing.Size(51, 31);
+            baseButton.TabIndex = 0;
             baseButton.Text = "base";
-            this.Controls.Add(baseButton);
+            baseButton.UseVisualStyleBackColor = true;
             baseButton.Click += new System.EventHandler(this.baseButton_Click);
-
+            // 
+            // button28
+            // 
             Button markButton = new Button();
-            markButton.Size = new Size(48, 23);
-            markButton.Location = new Point(698, 51);
+            markButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            markButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            markButton.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            markButton.Location = new System.Drawing.Point(54, 35);
+            markButton.Name = "markButton";
+            markButton.Size = new System.Drawing.Size(59, 31);
             markButton.Text = "mark";
+            markButton.UseVisualStyleBackColor = true;
             markButton.Click += new System.EventHandler(this.markButton_Click);
-            this.Controls.Add(markButton);
-
+            // 
+            // button29
+            // 
             Button menuButton = new Button();
-            menuButton.Size = new Size(53, 23);
-            menuButton.Location = new Point(752, 51);
-            menuButton.Text = "menu";
+            menuButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            menuButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            menuButton.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            menuButton.Location = new System.Drawing.Point(116, 35);
             menuButton.Name = "menuButton";
-            ToolTip menuBtnToolTip = new ToolTip();
+            menuButton.Size = new System.Drawing.Size(59, 31);
+            menuButton.Text = "menu";
+            menuButton.UseVisualStyleBackColor = true;
             menuButton.Click += new System.EventHandler(this.menuButton_Click);
-            this.Controls.Add(menuButton);
-
+            // 
+            // button30
+            // 
             Button formBtn = new Button();
-            formBtn.Size = new Size(53, 23);
-            formBtn.Location = new Point(640, 80);
+            formBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            formBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            formBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            formBtn.Location = new System.Drawing.Point(178, 35);
+            formBtn.Name = "formBtn";
+            formBtn.Size = new System.Drawing.Size(56, 31);
             formBtn.Text = "form";
+            formBtn.UseVisualStyleBackColor = true;
             formBtn.Click += new System.EventHandler(this.formBtn_Click);
-            this.Controls.Add(formBtn);
-
+            // 
+            // button31
+            // 
             Button hiddenText = new Button();
-            hiddenText.Size = new Size(48, 23);
-            hiddenText.Location = new Point(698, 80);
+            hiddenText.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            hiddenText.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            hiddenText.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            hiddenText.Location = new System.Drawing.Point(237, 35);
+            hiddenText.Name = "hiddenText";
+            hiddenText.Size = new System.Drawing.Size(55, 31);
             hiddenText.Text = "hide";
+            hiddenText.UseVisualStyleBackColor = true;
             hiddenText.Click += new System.EventHandler(this.hiddenText_Click);
-            this.Controls.Add(hiddenText);
-
+            // 
+            // button32
+            // 
             Button article = new Button();
+            article.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            article.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            article.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            article.Location = new System.Drawing.Point(295, 35);
+            article.Name = "article";
+            article.Size = new System.Drawing.Size(61, 31);
             article.Text = "article";
-            article.Size = new Size(53, 23);
-            article.Location = new Point(752, 80);
+            article.UseVisualStyleBackColor = true;
             article.Click += new System.EventHandler(this.article_Click);
-            this.Controls.Add(article);
-
+            // 
+            // button33
+            // 
             Button inputBtn = new Button();
+            inputBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            inputBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            inputBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            inputBtn.Location = new System.Drawing.Point(359, 35);
+            inputBtn.Name = "inputBtn";
+            inputBtn.Size = new System.Drawing.Size(58, 31);
             inputBtn.Text = "input";
-            inputBtn.Size = new Size(53, 23);
-            inputBtn.Location = new Point(640, 110);
             inputBtn.Click += new System.EventHandler(this.inputBtn_Click);
-            this.Controls.Add(inputBtn);
-
+            // 
+            // button34
+            //
             Button outputBtn = new Button();
-            outputBtn.Size = new Size(48, 23);
-            outputBtn.Location = new Point(698, 110);
+            outputBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            outputBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            outputBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            outputBtn.Location = new System.Drawing.Point(422, 35);
+            outputBtn.Name = "outputBtn";
+            outputBtn.Size = new System.Drawing.Size(60, 31);
+            outputBtn.TabIndex = 7;
             outputBtn.Text = "output";
+            outputBtn.UseVisualStyleBackColor = true;
             outputBtn.Click += new System.EventHandler(this.outputBtn_Click);
-            this.Controls.Add(outputBtn);
-
+            // 
+            // button35
+            // 
             Button sectionBtn = new Button();
-            sectionBtn.Size = new Size(53, 23);
-            sectionBtn.Location = new Point(752, 110);
+            sectionBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            sectionBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            sectionBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            sectionBtn.Location = new System.Drawing.Point(485, 35);
+            sectionBtn.Name = "sectionBtn";
+            sectionBtn.Size = new System.Drawing.Size(64, 31);
             sectionBtn.Text = "section";
             sectionBtn.Click += new System.EventHandler(this.sectionBtn_Click);
-            this.Controls.Add(sectionBtn);
-
+            // 
+            // button36
+            // 
             Button asideBtn = new Button();
+            asideBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            asideBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            asideBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            asideBtn.Location = new System.Drawing.Point(552, 35);
+            asideBtn.Name = "asideBtn";
+            asideBtn.Size = new System.Drawing.Size(65, 30);
             asideBtn.Text = "aside";
-            asideBtn.Size = new Size(53, 23);
-            asideBtn.Location = new Point(640, 140);
             asideBtn.Click += new System.EventHandler(this.asideBtn_Click);
-            this.Controls.Add(asideBtn);
-
+            // 
+            // button37
+            // 
             Button datalistBtn = new Button();
+            datalistBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            datalistBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            datalistBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            datalistBtn.Location = new System.Drawing.Point(620, 35);
+            datalistBtn.Name = "datalistBtn";
+            datalistBtn.Size = new System.Drawing.Size(109, 30);
             datalistBtn.Text = "datalist";
-            datalistBtn.Size = new Size(108, 23);
-            datalistBtn.Location = new Point(698, 140);
             datalistBtn.Click += new System.EventHandler(this.datalistBtn_Click);
-            this.Controls.Add(datalistBtn);
-
+            // 
+            // button38
+            // 
             Button fieldsetBtn = new Button();
+            fieldsetBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            fieldsetBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            fieldsetBtn.Location = new System.Drawing.Point(0, 35);
+            fieldsetBtn.Name = "fieldsetBtn";
+            fieldsetBtn.Size = new System.Drawing.Size(69, 31);
             fieldsetBtn.Text = "fieldset";
-            fieldsetBtn.Size = new Size(82, 23);
-            fieldsetBtn.Location = new Point(820, 51);
             fieldsetBtn.Click += new System.EventHandler(this.fieldsetBtn_Click);
-            this.Controls.Add(fieldsetBtn);
-
+            // 
+            // button39
+            //
             Button navBtn = new Button();
+            navBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            navBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            navBtn.Location = new System.Drawing.Point(72, 35);
+            navBtn.Name = "navBtn";
+            navBtn.Size = new System.Drawing.Size(86, 31);
             navBtn.Text = "navigation";
-            navBtn.Size = new Size(82, 23);
-            navBtn.Location = new Point(907, 51);
             navBtn.Click += new System.EventHandler(this.navBtn_Click);
-            this.Controls.Add(navBtn);
-
-            Button labelBtn = new Button();
-            labelBtn.Text = "label";
-            labelBtn.Size = new Size(50, 23);
-            labelBtn.Location = new Point(820, 80);
-            labelBtn.Click += new System.EventHandler(this.labelBtn_Click);
-            this.Controls.Add(labelBtn);
-
-            Button metaBtn = new Button();
-            metaBtn.Text = "meta";
-            metaBtn.Size = new Size(58, 23);
-            metaBtn.Location = new Point(876, 80);
-            metaBtn.Click += new System.EventHandler(this.metaBtn_Click);
-            this.Controls.Add(metaBtn);
-
-            Button selectBtn = new Button();
-            selectBtn.Text = "select";
-            selectBtn.Size = new Size(48, 23);
-            selectBtn.Location = new Point(940, 80);
-            selectBtn.Click += new System.EventHandler(this.selectBtn_Click);
-            this.Controls.Add(selectBtn);
-
-            Button iframeBtn = new Button();
-            iframeBtn.Text = "iframe";
-            iframeBtn.Size = new Size(50, 23);
-            iframeBtn.Location = new Point(820, 110);
-            iframeBtn.Click += new System.EventHandler(this.iframeBtn_Click);
-            this.Controls.Add(iframeBtn);
-
-            Button progressBtn = new Button();
-            progressBtn.Text = "progress";
-            progressBtn.Size = new Size(60, 23);
-            progressBtn.Location = new Point(875, 110);
-            progressBtn.Click += new System.EventHandler(this.progressBtn_Click);
-            this.Controls.Add(progressBtn);
-
-            Button figureBtn = new Button();
-            figureBtn.Text = "figure";
-            figureBtn.Size = new Size(48, 23);
-            figureBtn.Location = new Point(940, 110);
-            figureBtn.Click += new System.EventHandler(this.figureBtn_Click);
-            this.Controls.Add(figureBtn);
-
-            Button dialogBtn = new Button();
-            dialogBtn.Text = "dialog";
-            dialogBtn.Size = new Size(50, 23);
-            dialogBtn.Location = new Point(820, 140);
-            dialogBtn.Click += new System.EventHandler(this.dialogBtn_Click);
-            this.Controls.Add(dialogBtn);
-
-            Button timeBtn = new Button();
-            timeBtn.Text = "time";
-            timeBtn.Size = new Size(60, 23);
-            timeBtn.Location = new Point(875, 140);
-            timeBtn.Click += new System.EventHandler(this.timeBtn_Click);
-            this.Controls.Add(timeBtn);
-
+            // 
+            // button56
+            // 
             Button meterBtn = new Button();
+            meterBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            meterBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            meterBtn.Location = new System.Drawing.Point(764, 35);
+            meterBtn.Name = "meterBtn";
+            meterBtn.Size = new System.Drawing.Size(75, 31);
             meterBtn.Text = "meter";
-            meterBtn.Size = new Size(48, 23);
-            meterBtn.Location = new Point(940, 140);
             meterBtn.Click += new EventHandler(this.meterBtn_Click);
-            this.Controls.Add(meterBtn);
+            // 
+            // button55
+            //
+            Button timeBtn = new Button();
+            timeBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            timeBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            timeBtn.Location = new System.Drawing.Point(677, 35);
+            timeBtn.Name = "timeBtn";
+            timeBtn.Size = new System.Drawing.Size(84, 31);
+            timeBtn.Text = "time";
+            timeBtn.Click += new System.EventHandler(this.timeBtn_Click);
+            // 
+            // button54
+            // 
+            Button selectBtn = new Button();
+            selectBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            selectBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            selectBtn.Location = new System.Drawing.Point(298, 35);
+            selectBtn.Name = "selectBtn";
+            selectBtn.Size = new System.Drawing.Size(66, 31);
+            selectBtn.Text = "select";
+            selectBtn.Click += new System.EventHandler(this.selectBtn_Click);
+            // 
+            // button53
+            // 
+            Button dialogBtn = new Button();
+            dialogBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            dialogBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            dialogBtn.Location = new System.Drawing.Point(590, 35);
+            dialogBtn.Name = "dialogBtn";
+            dialogBtn.Size = new System.Drawing.Size(84, 31);
+            dialogBtn.Text = "dialog";
+            dialogBtn.Click += new System.EventHandler(this.dialogBtn_Click);
+            // 
+            // button52
+            // 
+            Button figureBtn = new Button();
+            figureBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            figureBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            figureBtn.Location = new System.Drawing.Point(503, 35);
+            figureBtn.Name = "figureBtn";
+            figureBtn.Size = new System.Drawing.Size(84, 31);
+            figureBtn.Text = "figure";
+            figureBtn.Click += new System.EventHandler(this.figureBtn_Click);
+            // 
+            // button51
+            // 
+            Button progressBtn = new Button();
+            progressBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            progressBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            progressBtn.Location = new System.Drawing.Point(425, 35);
+            progressBtn.Name = "progressBtn";
+            progressBtn.Size = new System.Drawing.Size(75, 31);
+            progressBtn.Text = "progress";
+            progressBtn.Click += new System.EventHandler(this.progressBtn_Click);
+            // 
+            // button42
+            //
+            Button metaBtn = new Button();
+            metaBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            metaBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            metaBtn.Location = new System.Drawing.Point(230, 35);
+            metaBtn.Name = "metaBtn";
+            metaBtn.Size = new System.Drawing.Size(65, 31);
+            metaBtn.Text = "meta";
+            metaBtn.Click += new System.EventHandler(this.metaBtn_Click);
+            // 
+            // button41
+            //
+            Button iframeBtn = new Button();
+            iframeBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            iframeBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            iframeBtn.Location = new System.Drawing.Point(367, 35);
+            iframeBtn.Name = "iframeBtn";
+            iframeBtn.Size = new System.Drawing.Size(55, 31);
+            iframeBtn.Text = "iframe";
+            iframeBtn.Click += new System.EventHandler(this.iframeBtn_Click);
+            // 
+            // button40
+            //
+            Button labelBtn = new Button();
+            labelBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            labelBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            labelBtn.Location = new System.Drawing.Point(161, 35);
+            labelBtn.Name = "labelBtn";
+            labelBtn.Size = new System.Drawing.Size(66, 31);
+            labelBtn.Text = "label";
+            labelBtn.Click += new System.EventHandler(this.labelBtn_Click);
+            // 
+            // button50
+            // 
+            Button h6 = new Button();
+            h6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            h6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            h6.Location = new System.Drawing.Point(295, 35);
+            h6.Name = "h6";
+            h6.Size = new System.Drawing.Size(57, 31);
+            h6.Text = "<h6>";
+            //h6.Click += new EventHandler(this.h6_Click);
+            // 
+            // button49
+            //
+            Button h5 = new Button();
+            h5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            h5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            h5.Location = new System.Drawing.Point(236, 35);
+            h5.Name = "h5";
+            h5.Size = new System.Drawing.Size(56, 31);
+            h5.Text = "<h5>";
+            //h5.Click += new EventHandler(this.h5_Click);
+            // 
+            // button48
+            //
+            Button h4 = new Button();
+            h4.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            h4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            h4.Location = new System.Drawing.Point(177, 35);
+            h4.Name = "h4";
+            h4.Size = new System.Drawing.Size(56, 31);
+            h4.Text = "<h4>";
+            //h4.Click += new EventHandler(this.h4_Click);
+            // 
+            // button47
+            //
+            Button h2 = new Button();
+            h2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            h2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            h2.Location = new System.Drawing.Point(59, 35);
+            h2.Name = "h2";
+            h2.Size = new System.Drawing.Size(56, 31);
+            h2.Text = "<h2>";
+            //h2.Click += new EventHandler(this.h2_Click);
+            // 
+            // button46
+            //
+            Button h3 = new Button();
+            h3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            h3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            h3.Location = new System.Drawing.Point(118, 35);
+            h3.Name = "h3";
+            h3.Size = new System.Drawing.Size(56, 31);
+            h3.Text = "<h3>";
+            //h3.Click += new EventHandler(this.h3_Click);
+            // 
+            // button45
+            // 
+            Button h1 = new Button();
+            h1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            h1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            h1.Location = new System.Drawing.Point(1, 35);
+            h1.Name = "h1";
+            h1.Size = new System.Drawing.Size(56, 31);
+            h1.TabIndex = 1;
+            h1.Text = "<h1>";
+            //h1.Click += new EventHandler(this.h1_Click);
+            // 
+            // button44
+            // 
+            Button ul = new Button();
+            ul.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            ul.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            ul.Location = new System.Drawing.Point(666, 35);
+            ul.MaximumSize = new System.Drawing.Size(200, 31);
+            ul.Name = "ul";
+            ul.Size = new System.Drawing.Size(50, 28);
+            ul.Text = "<ul>";
+            //ul.Click += new EventHandler(this.ul_Click);
+            // 
+            // button43
+            //
+            Button ol = new Button();
+            ol.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            ol.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            ol.Location = new System.Drawing.Point(611, 35);
+            ol.MaximumSize = new System.Drawing.Size(200, 31);
+            ol.Name = "ol";
+            ol.Size = new System.Drawing.Size(49, 28);
+            ol.Text = "<ol>";
+            //ol.Click += new EventHandler(this.ol_Click);
+            // 
+            // button11
+            //
+            Button bdo = new Button();
+            bdo.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            bdo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            bdo.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            bdo.Location = new System.Drawing.Point(541, 35);
+            bdo.MaximumSize = new System.Drawing.Size(200, 31);
+            bdo.Name = "bdo";
+            bdo.Size = new System.Drawing.Size(64, 29);
+            bdo.Text = "<bdo>";
+            bdo.Click += new System.EventHandler(this.bdo_Click);
+            // 
+            // button10
+            //
+            Button supBtn = new Button();
+            supBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            supBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            supBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            supBtn.Location = new System.Drawing.Point(499, 35);
+            supBtn.MaximumSize = new System.Drawing.Size(200, 31);
+            supBtn.Name = "subBtn";
+            supBtn.Size = new System.Drawing.Size(36, 29);
+            supBtn.Text = "X²";
+            supBtn.Click += new System.EventHandler(this.subBtn_Click);
+            // 
+            // button8
+            //
+            Button xettBtn = new Button();
+            xettBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            xettBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            xettBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            xettBtn.Location = new System.Drawing.Point(384, 35);
+            xettBtn.MaximumSize = new System.Drawing.Size(200, 31);
+            xettBtn.Name = "xettBtn";
+            xettBtn.Size = new System.Drawing.Size(67, 29);
+            xettBtn.Text = "---";
+            xettBtn.Click += new System.EventHandler(this.xettBtn_Click);
+            // 
+            // button9
+            //
+            Button subBtn = new Button();
+            subBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            subBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            subBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            subBtn.Location = new System.Drawing.Point(457, 35);
+            subBtn.MaximumSize = new System.Drawing.Size(200, 31);
+            subBtn.Name = "button9";
+            subBtn.Size = new System.Drawing.Size(36, 29);
+            subBtn.Text = "X₂";
+            subBtn.Click += new System.EventHandler(this.subBtn_Click);
+            // 
+            // button6
+            // 
+            Button yeniSetirBtn = new Button();
+            yeniSetirBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            yeniSetirBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            yeniSetirBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            yeniSetirBtn.Location = new System.Drawing.Point(239, 35);
+            yeniSetirBtn.MaximumSize = new System.Drawing.Size(200, 31);
+            yeniSetirBtn.Name = "yeniSetirBtn";
+            yeniSetirBtn.Size = new System.Drawing.Size(66, 29);
+            yeniSetirBtn.Text = "<br>";
+            yeniSetirBtn.Click += new System.EventHandler(this.yeniSetirBtn_Click);
+            // 
+            // button7
+            // 
+            Button spanButton = new Button();
+            spanButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            spanButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            spanButton.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            spanButton.Location = new System.Drawing.Point(311, 35);
+            spanButton.MaximumSize = new System.Drawing.Size(200, 31);
+            spanButton.Name = "spanButton";
+            spanButton.Size = new System.Drawing.Size(67, 29);
+            spanButton.Text = "<span>";
+            spanButton.Click += new System.EventHandler(this.spanButton_Click);
+            // 
+            // button3
+            //
+            Button eyriBtn = new Button();
+            eyriBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            eyriBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            eyriBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Italic);
+            eyriBtn.Location = new System.Drawing.Point(84, 35);
+            eyriBtn.MaximumSize = new System.Drawing.Size(200, 31);
+            eyriBtn.Name = "eyriBtn";
+            eyriBtn.Size = new System.Drawing.Size(35, 31);
+            eyriBtn.Text = "I";
+            eyriBtn.Click += new System.EventHandler(this.eyriBtn_Click);
+            // 
+            // button4
+            //
+            Button kesenxettBtn = new Button();
+            kesenxettBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            kesenxettBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            kesenxettBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Strikeout);
+            kesenxettBtn.Location = new System.Drawing.Point(125, 35);
+            kesenxettBtn.MaximumSize = new System.Drawing.Size(200, 31);
+            kesenxettBtn.Name = "kesenxettBtn";
+            kesenxettBtn.Size = new System.Drawing.Size(36, 31);
+            kesenxettBtn.Text = "S";
+            kesenxettBtn.Click += new System.EventHandler(this.kesenxettBtn_Click);
+            // 
+            // button2
+            //
+            Button altdanxettBtn = new Button();
+            altdanxettBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            altdanxettBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            altdanxettBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Underline);
+            altdanxettBtn.Location = new System.Drawing.Point(42, 35);
+            altdanxettBtn.MaximumSize = new System.Drawing.Size(200, 31);
+            altdanxettBtn.Name = "altdanxettBtn";
+            altdanxettBtn.Size = new System.Drawing.Size(36, 31);
+            altdanxettBtn.Text = "U";
+            altdanxettBtn.Click += new System.EventHandler(this.altdanxettBtn_Click);
+            // 
+            // button1
+            //
+            Button yagliBtn = new Button();
+            yagliBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            yagliBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            yagliBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Bold);
+            yagliBtn.Location = new System.Drawing.Point(1, 35);
+            yagliBtn.MaximumSize = new System.Drawing.Size(200, 31);
+            yagliBtn.Name = "yagliBtn";
+            yagliBtn.Size = new System.Drawing.Size(35, 31);
+            yagliBtn.Text = "B";
+            yagliBtn.Click += new System.EventHandler(this.yagliBtn_Click);
+            // 
+            // button5
+            // 
+            Button paraqrafBtn = new Button();
+            paraqrafBtn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            paraqrafBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            paraqrafBtn.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            paraqrafBtn.Location = new System.Drawing.Point(167, 35);
+            paraqrafBtn.MaximumSize = new System.Drawing.Size(200, 31);
+            paraqrafBtn.Name = "paraqrafBtn";
+            paraqrafBtn.Size = new System.Drawing.Size(66, 31);
+            paraqrafBtn.Text = "<p>";
+            paraqrafBtn.Click += new System.EventHandler(this.paraqrafBtn_Click);
+            // 
+            // menu
+            // 
+            // 
+            // tableLayoutPanel1
+            //
+            TableLayoutPanel tableMenu = new TableLayoutPanel();
+            tableMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            tableMenu.BackColor = System.Drawing.Color.Transparent;
+            tableMenu.ColumnCount = 1;
+            tableMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableMenu.Location = new System.Drawing.Point(12, 29);
+            tableMenu.Name = "tableMenu";
+            tableMenu.RowCount = 1;
+            tableMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableMenu.Size = new System.Drawing.Size(978, 78);
+            this.Controls.Add(tableMenu);
 
-            label1.Visible = true;
-            lists.Visible = true;
-            listTypes.Visible = true;
-            label2.Visible = true;
+
+            TabPage tabPage7 = new TabPage();
+            TabPage tabPage6 = new TabPage();
+            TabPage tabPage5 = new TabPage();
+            TabPage tabPage4 = new TabPage();
+            TabPage tabPage3 = new TabPage();
+            TabPage tabPage2 = new TabPage();
+            TabPage tabPage1 = new TabPage();
+            TabControl menu = new TabControl();
+            menu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            menu.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            menu.ItemSize = new System.Drawing.Size(160, 21);
+            menu.Location = new System.Drawing.Point(3, 3);
+            menu.Name = "menu";
+            menu.Size = new System.Drawing.Size(972, 72);
+            menu.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            tableMenu.Controls.Add(menu,0,0);
+            // 
+            // tabPage7
+            //
+            tabPage7.Controls.Add(meterBtn);
+            tabPage7.Controls.Add(timeBtn);
+            tabPage7.Controls.Add(selectBtn);
+            tabPage7.Controls.Add(dialogBtn);
+            tabPage7.Controls.Add(figureBtn);
+            tabPage7.Controls.Add(progressBtn);
+            tabPage7.Controls.Add(metaBtn);
+            tabPage7.Controls.Add(iframeBtn);
+            tabPage7.Controls.Add(labelBtn);
+            tabPage7.Controls.Add(navBtn);
+            tabPage7.Controls.Add(fieldsetBtn);
+            tabPage7.Location = new System.Drawing.Point(4, 25);
+            tabPage7.Name = "tabPage7";
+            tabPage7.Size = new System.Drawing.Size(964, 43);
+            tabPage7.Text = "Other";
+            // 
+            // tabPage6
+            //
+            tabPage6.Controls.Add(datalistBtn);
+            tabPage6.Controls.Add(sectionBtn);
+            tabPage6.Controls.Add(asideBtn);
+            tabPage6.Controls.Add(baseButton);
+            tabPage6.Controls.Add(outputBtn);
+            tabPage6.Controls.Add(markButton);
+            tabPage6.Controls.Add(inputBtn);
+            tabPage6.Controls.Add(menuButton);
+            tabPage6.Controls.Add(article);
+            tabPage6.Controls.Add(formBtn);
+            tabPage6.Controls.Add(hiddenText);
+            tabPage6.Location = new System.Drawing.Point(4, 25);
+            tabPage6.Name = "tabPage6";
+            tabPage6.Size = new System.Drawing.Size(964, 43);
+            tabPage6.Text = "Data";
+            // 
+            // tabPage5
+            // 
+            tabPage5.Controls.Add(btn);
+            tabPage5.Controls.Add(scriptBtn);
+            tabPage5.Controls.Add(divBtn);
+            tabPage5.Controls.Add(video);
+            tabPage5.Controls.Add(linkBtn);
+            tabPage5.Controls.Add(textAreaBtn);
+            tabPage5.Controls.Add(youtube);
+            tabPage5.Controls.Add(commentBtn);
+            tabPage5.Controls.Add(audioBtn);
+            tabPage5.Controls.Add(imgBtn);
+            tabPage5.Controls.Add(sitatBtn);
+            tabPage5.Controls.Add(abbreviature);
+            tabPage5.Location = new System.Drawing.Point(4, 25);
+            tabPage5.Name = "tabPage5";
+            tabPage5.Size = new System.Drawing.Size(964, 43);
+            tabPage5.Text = "Info";
+            // 
+            // tabPage4
+            // 
+            tabPage4.Controls.Add(tdBtn);
+            tabPage4.Controls.Add(tableButton);
+            tabPage4.Controls.Add(trBtn);
+            tabPage4.Location = new System.Drawing.Point(4, 25);
+            tabPage4.Name = "tabPage4";
+            tabPage4.Size = new System.Drawing.Size(964, 43);
+            tabPage4.Text = "Table";
+            // 
+            // tabPage3
+            // 
+            tabPage3.Controls.Add(h1);
+            tabPage3.Controls.Add(h2);
+            tabPage3.Controls.Add(h3);
+            tabPage3.Controls.Add(h4);
+            tabPage3.Controls.Add(h5);
+            tabPage3.Controls.Add(h6);
+            tabPage3.Location = new System.Drawing.Point(4, 25);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Size = new System.Drawing.Size(964, 43);
+            tabPage3.Text = "Headers";
+            // 
+            // tabPage1
+            //
+            tabPage1.BackColor = System.Drawing.Color.Transparent;
+            tabPage1.Controls.Add(paraqrafBtn);
+            tabPage1.Controls.Add(yagliBtn);
+            tabPage1.Controls.Add(altdanxettBtn);
+            tabPage1.Controls.Add(kesenxettBtn);
+            tabPage1.Controls.Add(eyriBtn);
+            tabPage1.Controls.Add(spanButton);
+            tabPage1.Controls.Add(yeniSetirBtn);
+            tabPage1.Controls.Add(subBtn);
+            tabPage1.Controls.Add(xettBtn);
+            tabPage1.Controls.Add(supBtn);
+            tabPage1.Controls.Add(bdo);
+            tabPage1.Controls.Add(ol);
+            tabPage1.Controls.Add(ul);
+            tabPage1.Location = new System.Drawing.Point(4, 25);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            tabPage1.Size = new System.Drawing.Size(964, 43);
+            tabPage1.Text = "Text";
+
+            menu.Controls.Add(tabPage1);
+            menu.Controls.Add(tabPage3);
+            menu.Controls.Add(tabPage4);
+            menu.Controls.Add(tabPage5);
+            menu.Controls.Add(tabPage6);
+            menu.Controls.Add(tabPage7);
+            
             listBox1.Visible = true;
-            label3.Visible = true;
-            label4.Visible = true;
-            label6.Visible = true;
             browserWindow.Visible = true;
-            textArea.Width = 490;
-            textArea.Height = 430;
-            textArea.Location = new Point(12, 183);
+            //textArea.Width = 490;
+            //textArea.Height = 430;
+            //textArea.Location = new Point(12, 183);
             syntax.Text = "Syntax [HTML]";
-
         }
         private void phpTemplate()
         {
+            TandB.ColumnCount = 1;
+            TandB.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            TandB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             for (int i = this.Controls.Count - 1; i >= 0; i--)
             {
                 Button control = this.Controls[i] as Button;
@@ -676,13 +957,16 @@ namespace Loxie
                 control.Dispose();
                 //control1.Dispose();
             }
+            if (this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu") != null)
+            {
+                this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu").Dispose();
+            }
             textArea.Clear();
             syntax.Text = "Syntax [PHP]";
             textArea.AppendText("<?php \necho \"Hello,world!\"; \n?>");
             browserWindow.Visible = false;
-            textArea.Height = 562;
-            textArea.Width = 980;
-            textArea.Location = new Point(12, 50);
+            TandB.Height = 563;
+            TandB.Location = new Point(12,50);
             textArea.Focus();
             var ctrl = (Control)this;
             var frm = ctrl.FindForm();
@@ -1008,6 +1292,11 @@ namespace Loxie
         }
         private void cssTemplate()
         {
+            TandB.ColumnCount = 1;
+            TandB.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            TandB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
             for (int i = this.Controls.Count - 1; i >= 0; i--)
             {
                 Button control = this.Controls[i] as Button;
@@ -1022,9 +1311,9 @@ namespace Loxie
             textArea.AppendText(" { \n\n");
             textArea.AppendText(" } \n");
             browserWindow.Visible = false;
-            textArea.Height = 516;
-            textArea.Width = 980;
-            textArea.Location = new Point(12, 97);
+            TandB.Height = 547;
+            TandB.Location = new Point(12, 97);
+
             var ctrl = (Control)this;
             var frm = ctrl.FindForm();
             Label label = null;
@@ -7463,7 +7752,7 @@ namespace Loxie
             divForm.Controls.Add(divCancel);
             divCancel.Click += new System.EventHandler(this.divCancel_Click);
         }
-        private void cedvelBtn_Click(object sender, EventArgs e)
+        private void tableButton_Click(object sender, EventArgs e)
         {
             Form frm1 = new Form();
             frm1.Size = new Size(242, 377);
@@ -14441,7 +14730,26 @@ namespace Loxie
             textArea.SelectionStart = endPlace;
             count = 0;
         }
-              
+
+        private void loadStyleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog style_open = new OpenFileDialog();
+            style_open.Filter = ("CSS Files | *.css");
+            style_open.Title = "Select style files";
+            if (style_open.ShowDialog() != DialogResult.Cancel)
+            {
+                System.IO.StreamReader OpenFile = new System.IO.StreamReader(style_open.FileName);
+                string loadstyle = style_open.FileName;
+                if (textArea.Find("<head>") != -1)
+                {
+                    textArea.DeselectAll();
+                    StringBuilder sb1 = new StringBuilder("<head>");
+                    sb1.Insert(6, string.Format("\n<link rel=\"stylesheet\" href=\"{0}\">", loadstyle));
+                    textArea.SelectedText = sb1.ToString();
+                }
+            }
+        }
+
         //=========================================Button Clicks===============================================//
 
     }
