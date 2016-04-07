@@ -56,6 +56,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.haqqindaTSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.əlaqəToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.loadStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.htmlSave = new System.Windows.Forms.SaveFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
@@ -70,7 +71,6 @@
             this.TandB = new System.Windows.Forms.TableLayoutPanel();
             this.textArea = new System.Windows.Forms.RichTextBox();
             this.browserWindow = new System.Windows.Forms.WebBrowser();
-            this.loadStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.TandB.SuspendLayout();
             this.SuspendLayout();
@@ -361,6 +361,14 @@
             this.əlaqəToolStripMenuItem.Text = "Contact";
             this.əlaqəToolStripMenuItem.Click += new System.EventHandler(this.əlaqəToolStripMenuItem_Click);
             // 
+            // loadStyleToolStripMenuItem
+            // 
+            this.loadStyleToolStripMenuItem.Font = new System.Drawing.Font("Palatino Linotype", 9F);
+            this.loadStyleToolStripMenuItem.Name = "loadStyleToolStripMenuItem";
+            this.loadStyleToolStripMenuItem.Size = new System.Drawing.Size(78, 21);
+            this.loadStyleToolStripMenuItem.Text = "Load style";
+            this.loadStyleToolStripMenuItem.Click += new System.EventHandler(this.loadStyleToolStripMenuItem_Click);
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.Filter = "HTML files | *.html|HTM files| *.htm|PHP files|*.php|CSS files |*.css";
@@ -517,6 +525,7 @@
             this.textArea.Size = new System.Drawing.Size(483, 497);
             this.textArea.TabIndex = 35;
             this.textArea.Text = "";
+            this.textArea.TextChanged += new System.EventHandler(this.textArea_TextChanged);
             // 
             // browserWindow
             // 
@@ -528,14 +537,6 @@
             this.browserWindow.Name = "browserWindow";
             this.browserWindow.Size = new System.Drawing.Size(483, 497);
             this.browserWindow.TabIndex = 34;
-            // 
-            // loadStyleToolStripMenuItem
-            // 
-            this.loadStyleToolStripMenuItem.Font = new System.Drawing.Font("Palatino Linotype", 9F);
-            this.loadStyleToolStripMenuItem.Name = "loadStyleToolStripMenuItem";
-            this.loadStyleToolStripMenuItem.Size = new System.Drawing.Size(78, 21);
-            this.loadStyleToolStripMenuItem.Text = "Load style";
-            this.loadStyleToolStripMenuItem.Click += new System.EventHandler(this.loadStyleToolStripMenuItem_Click);
             // 
             // Main
             // 

@@ -642,7 +642,7 @@ namespace Loxie
             ol.Name = "ol";
             ol.Size = new System.Drawing.Size(49, 28);
             ol.Text = "<ol>";
-            //ol.Click += new EventHandler(this.ol_Click);
+            ol.Click += new EventHandler(this.ol_Click);
             // 
             // button11
             //
@@ -5507,8 +5507,6 @@ namespace Loxie
             seconds2.Text = "s";
             animateForm.Controls.Add(seconds2);
 
-
-
             NumericUpDown animateIterationCount = new NumericUpDown();
             animateIterationCount.Location = new System.Drawing.Point(150, 118);
             animateIterationCount.Name = "animateIterationCount";
@@ -8045,8 +8043,167 @@ namespace Loxie
             label3.Text = "©2015-2016 AhmCho";
             aboutPanel.Controls.Add(label3);
         }
+        private void ol_Click(object sender, EventArgs e)
+        {
+            Form olForm = new Form();
+            olForm.Size = new Size(271, 98);
+            olForm.StartPosition = FormStartPosition.CenterScreen;
+            olForm.ShowIcon = false;
+            olForm.Text = "ordered list";
+            olForm.Name = "olForm";
+            olForm.ShowInTaskbar = false;
+            olForm.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            olForm.MaximizeBox = false;
+            olForm.Show();
+
+            Button addListItem = new Button();
+            addListItem.Location = new System.Drawing.Point(76, 7);
+            addListItem.Name = "addListItem";
+            addListItem.Size = new System.Drawing.Size(28, 22);
+            addListItem.Text = "+";
+            addListItem.Click += new System.EventHandler(this.addListItem_Click);
+            olForm.Controls.Add(addListItem);
+
+            Button removeListItem = new Button();
+            removeListItem.Location = new System.Drawing.Point(110, 7);
+            removeListItem.Name = "removeListItem";
+            removeListItem.Size = new System.Drawing.Size(28, 22);
+            removeListItem.Text = "-";
+            removeListItem.Click += new EventHandler(this.removeListItem_Click);
+            olForm.Controls.Add(removeListItem);
+
+            Button olOk = new Button();
+            olOk.Location = new System.Drawing.Point(126, 35);
+            olOk.Name = "olOk";
+            olOk.Size = new System.Drawing.Size(37, 23);
+            olOk.Text = "OK";
+            olOk.Click += new EventHandler(this.olOk_Click);
+            olForm.Controls.Add(olOk);
+
+            Button olCancel = new Button();
+            olCancel.Location = new System.Drawing.Point(169, 35);
+            olCancel.Name = "olCancel";
+            olCancel.Size = new System.Drawing.Size(75, 23);
+            olCancel.Text = "Cancel";
+            olCancel.Click += new EventHandler(this.olCancel_Click);
+            olForm.Controls.Add(olCancel);
+
+            Label label1 = new Label();
+            label1.Location = new System.Drawing.Point(12, 12);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(50, 13);
+            label1.Text = "list item";
+            olForm.Controls.Add(label1);
+
+            TextBox listItem = new TextBox();
+            listItem.Location = new System.Drawing.Point(144, 9);
+            listItem.Name = "listItem";
+            listItem.Size = new System.Drawing.Size(100, 20);
+            olForm.Controls.Add(listItem);
+        }
         //=======================================UserInterface================================================//
         //=======================================Button Clicks===============================================//
+        private void olOk_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            textArea.SelectionLength = 0;
+            textArea.SelectedText = "<ol>\n";
+                    if (frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "listItem").Text != String.Empty)
+                    {
+                        textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "listItem").Text);
+                    }
+                    if (frm.Controls.ContainsKey("txt1") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt1").Text != String.Empty)
+                    {
+                        textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt1").Text);
+                    }
+                    if (frm.Controls.ContainsKey("txt2") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt2").Text != String.Empty)
+                    {
+                        textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt2").Text);
+                    }
+                    if (frm.Controls.ContainsKey("txt3") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt3").Text != String.Empty)
+                    {
+                        textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt3").Text);
+                    }
+                    if (frm.Controls.ContainsKey("txt4") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt4").Text != String.Empty)
+                    {
+                        textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt4").Text);
+                    }
+                    if (frm.Controls.ContainsKey("txt5") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt5").Text != String.Empty)
+                    {
+                        textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt5").Text);
+                    }
+                    if (frm.Controls.ContainsKey("txt6") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt6").Text != String.Empty)
+                    {
+                        textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt6").Text);
+                    }
+                    if (frm.Controls.ContainsKey("txt7") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt7").Text != String.Empty)
+                    {
+                        textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt7").Text);
+                    }
+                    if (frm.Controls.ContainsKey("txt8") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt8").Text != String.Empty)
+                    {
+                        textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt8").Text);
+                    }
+                    if (frm.Controls.ContainsKey("txt9") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt9").Text != String.Empty)
+                    {
+                        textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt9").Text);
+                    }
+            frm.Close();
+            textArea.SelectedText = "</ol>\n";
+        }
+        private void olCancel_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            frm.Close();
+        }
+        int index2=1;
+        private void addListItem_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            string lbldflt = "list item";
+            Label l = new Label();
+            TextBox t = new TextBox();
+            frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "removeListItem").Enabled = true;
+            frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olOk").Location = new Point(frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olOk").Location.X, frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olOk").Location.Y + 30);
+            frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olCancel").Location = new Point(frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olCancel").Location.X, frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olCancel").Location.Y + 30);
+            l.Text = lbldflt + " " + index2;
+            l.Width = frm.Controls.OfType<Label>().FirstOrDefault(y => y.Name == "label1").Width + 15;
+            l.Location = new Point(frm.Controls.OfType<Label>().FirstOrDefault(y => y.Name == "label1").Location.X, frm.Controls.OfType<Label>().FirstOrDefault(y => y.Name == "label1").Location.Y + 30 * index2);
+            l.Name = "lbl" + index2;
+            t.Name = "txt" + index2;
+            t.Width = frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "listItem").Width;
+            t.Location = new Point(frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "listItem").Location.X, frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "listItem").Location.Y + 30 * index2);
+            index2++;
+            if (index2 > 9)
+            {
+                frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "addListItem").Enabled = false;
+            }
+            frm.Controls.Add(l);
+            frm.Controls.Add(t);
+            frm.Height += 30;
+        }
+        private void removeListItem_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            if (index2 > 1)
+            {
+                frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "addListItem").Enabled = true;
+                frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olOk").Location = new Point(frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olOk").Location.X, frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olOk").Location.Y - 30);
+                frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olCancel").Location = new Point(frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olCancel").Location.X, frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olCancel").Location.Y - 30);
+                index2--;
+                frm.Controls.RemoveByKey("txt" + index2);
+                frm.Controls.RemoveByKey("lbl" + index2);
+                frm.Height -= 30;
+            }
+            if (index2 == 1)
+            {
+                frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "removeListItem").Enabled = false;
+            }
+        }
         private void aboutImage_Click(object sender,EventArgs e)
         {
             var ctrl = (Control)sender;
@@ -11457,9 +11614,9 @@ namespace Loxie
                     }
                     else
                         if (addBtn.Name == "datalistOK")
-                    {
-                        addBtn.Location = new Point(addBtn.Location.X, addBtn.Location.Y + 30);
-                    }
+                        {
+                            addBtn.Location = new Point(addBtn.Location.X, addBtn.Location.Y + 30);
+                        }
                     else
                         if (addBtn.Name == "datalistCancel")
                     {
