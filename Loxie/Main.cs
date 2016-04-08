@@ -19,7 +19,7 @@ namespace Loxie
         bool listShow2 = false;
         string keyword1 = ":";
         string keyword2 = "@";
-        string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)+"\\config.loxie";
+        string path = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\config.loxie";
         int count = 0;
         //=======================================================UserInterface=======================================//
         public Main()
@@ -41,7 +41,7 @@ namespace Loxie
             {
                 TextWriter tw1 = new StreamWriter(path);
                 tw1.WriteLine("[Run]");
-                tw1.WriteLine("ApplicationRunTime={0}",DateTime.Now);
+                tw1.WriteLine("ApplicationRunTime={0}", DateTime.Now);
                 tw1.Close();
                 InitializeComponent();
             }
@@ -72,7 +72,7 @@ namespace Loxie
             TandB.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             TandB.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TandB.Location = new Point(12, 110);
-            if (this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu") != null )
+            if (this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu") != null)
             {
                 this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu").Dispose();
             }
@@ -562,7 +562,7 @@ namespace Loxie
             h6.Name = "h6";
             h6.Size = new System.Drawing.Size(57, 31);
             h6.Text = "<h6>";
-            //h6.Click += new EventHandler(this.h6_Click);
+            h6.Click += new EventHandler(this.h6_Click);
             // 
             // button49
             //
@@ -573,7 +573,7 @@ namespace Loxie
             h5.Name = "h5";
             h5.Size = new System.Drawing.Size(56, 31);
             h5.Text = "<h5>";
-            //h5.Click += new EventHandler(this.h5_Click);
+            h5.Click += new EventHandler(this.h5_Click);
             // 
             // button48
             //
@@ -584,7 +584,7 @@ namespace Loxie
             h4.Name = "h4";
             h4.Size = new System.Drawing.Size(56, 31);
             h4.Text = "<h4>";
-            //h4.Click += new EventHandler(this.h4_Click);
+            h4.Click += new EventHandler(this.h4_Click);
             // 
             // button47
             //
@@ -595,7 +595,7 @@ namespace Loxie
             h2.Name = "h2";
             h2.Size = new System.Drawing.Size(56, 31);
             h2.Text = "<h2>";
-            //h2.Click += new EventHandler(this.h2_Click);
+            h2.Click += new EventHandler(this.h2_Click);
             // 
             // button46
             //
@@ -606,7 +606,7 @@ namespace Loxie
             h3.Name = "h3";
             h3.Size = new System.Drawing.Size(56, 31);
             h3.Text = "<h3>";
-            //h3.Click += new EventHandler(this.h3_Click);
+            h3.Click += new EventHandler(this.h3_Click);
             // 
             // button45
             // 
@@ -618,7 +618,7 @@ namespace Loxie
             h1.Size = new System.Drawing.Size(56, 31);
             h1.TabIndex = 1;
             h1.Text = "<h1>";
-            //h1.Click += new EventHandler(this.h1_Click);
+            h1.Click += new EventHandler(this.h1_Click);
             // 
             // button44
             // 
@@ -630,7 +630,7 @@ namespace Loxie
             ul.Name = "ul";
             ul.Size = new System.Drawing.Size(50, 28);
             ul.Text = "<ul>";
-            //ul.Click += new EventHandler(this.ul_Click);
+            ul.Click += new EventHandler(this.ul_Click);
             // 
             // button43
             //
@@ -668,7 +668,7 @@ namespace Loxie
             supBtn.Name = "subBtn";
             supBtn.Size = new System.Drawing.Size(36, 29);
             supBtn.Text = "X²";
-            supBtn.Click += new System.EventHandler(this.subBtn_Click);
+            supBtn.Click += new System.EventHandler(this.supBtn_Click);
             // 
             // button8
             //
@@ -823,7 +823,7 @@ namespace Loxie
             menu.Name = "menu";
             menu.Size = new System.Drawing.Size(972, 72);
             menu.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            tableMenu.Controls.Add(menu,0,0);
+            tableMenu.Controls.Add(menu, 0, 0);
             // 
             // tabPage7
             //
@@ -931,12 +931,9 @@ namespace Loxie
             menu.Controls.Add(tabPage5);
             menu.Controls.Add(tabPage6);
             menu.Controls.Add(tabPage7);
-            
+
             listBox1.Visible = true;
             browserWindow.Visible = true;
-            //textArea.Width = 490;
-            //textArea.Height = 430;
-            //textArea.Location = new Point(12, 183);
             syntax.Text = "Syntax [HTML]";
         }
         private void phpTemplate()
@@ -966,7 +963,7 @@ namespace Loxie
             textArea.AppendText("<?php \necho \"Hello,world!\"; \n?>");
             browserWindow.Visible = false;
             TandB.Height = 563;
-            TandB.Location = new Point(12,50);
+            TandB.Location = new Point(12, 50);
             textArea.Focus();
             var ctrl = (Control)this;
             var frm = ctrl.FindForm();
@@ -1074,12 +1071,12 @@ namespace Loxie
             phpClearWindow.Click += new EventHandler(this.phpClearWindow_Click);
             this.Controls.Add(phpClearWindow);
         }
-        private void phpClearWindow_Click(object sender,EventArgs e)
+        private void phpClearWindow_Click(object sender, EventArgs e)
         {
             textArea.Clear();
             textArea.AppendText("<?php\n\n\n?>");
         }
-        private void phpEcho_Click(object sender,EventArgs e)
+        private void phpEcho_Click(object sender, EventArgs e)
         {
             Form phpEchoForm = new Form();
             phpEchoForm.Size = new Size(233, 100);
@@ -5660,7 +5657,7 @@ namespace Loxie
             alignCancel.Click += new System.EventHandler(this.alignCancel_Click);
             alignForm.Controls.Add(alignCancel);
         }
-        private void meterBtn_Click(object sender, EventArgs e) 
+        private void meterBtn_Click(object sender, EventArgs e)
         {
             Form meterForm = new Form();
             meterForm.Size = new Size(169, 296);
@@ -8101,8 +8098,492 @@ namespace Loxie
             listItem.Size = new System.Drawing.Size(100, 20);
             olForm.Controls.Add(listItem);
         }
+        private void ul_Click(object sender, EventArgs e)
+        {
+            Form ulForm = new Form();
+            ulForm.Size = new Size(271, 98);
+            ulForm.StartPosition = FormStartPosition.CenterScreen;
+            ulForm.ShowIcon = false;
+            ulForm.Text = "unordered list";
+            ulForm.Name = "ulForm";
+            ulForm.ShowInTaskbar = false;
+            ulForm.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            ulForm.MaximizeBox = false;
+            ulForm.Show();
+
+            Button addListItemU = new Button();
+            addListItemU.Location = new System.Drawing.Point(76, 7);
+            addListItemU.Name = "addListItemU";
+            addListItemU.Size = new System.Drawing.Size(28, 22);
+            addListItemU.Text = "+";
+            addListItemU.Click += new System.EventHandler(this.addListItemU_Click);
+            ulForm.Controls.Add(addListItemU);
+
+            Button removeListItemU = new Button();
+            removeListItemU.Location = new System.Drawing.Point(110, 7);
+            removeListItemU.Name = "removeListItemU";
+            removeListItemU.Size = new System.Drawing.Size(28, 22);
+            removeListItemU.Text = "-";
+            removeListItemU.Click += new EventHandler(this.removeListItemU_Click);
+            ulForm.Controls.Add(removeListItemU);
+
+            Button ulOk = new Button();
+            ulOk.Location = new System.Drawing.Point(126, 35);
+            ulOk.Name = "ulOk";
+            ulOk.Size = new System.Drawing.Size(37, 23);
+            ulOk.Text = "OK";
+            ulOk.Click += new EventHandler(this.ulOk_Click);
+            ulForm.Controls.Add(ulOk);
+
+            Button ulCancel = new Button();
+            ulCancel.Location = new System.Drawing.Point(169, 35);
+            ulCancel.Name = "ulCancel";
+            ulCancel.Size = new System.Drawing.Size(75, 23);
+            ulCancel.Text = "Cancel";
+            ulCancel.Click += new EventHandler(this.olCancel_Click);
+            ulForm.Controls.Add(ulCancel);
+
+            Label label1 = new Label();
+            label1.Location = new System.Drawing.Point(12, 12);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(50, 13);
+            label1.Text = "list item";
+            ulForm.Controls.Add(label1);
+
+            TextBox listItem = new TextBox();
+            listItem.Location = new System.Drawing.Point(144, 9);
+            listItem.Name = "listItem";
+            listItem.Size = new System.Drawing.Size(100, 20);
+            ulForm.Controls.Add(listItem);
+        }
+        private void h1_Click(object sender, EventArgs e)
+        {
+            Form h1Form = new Form();
+            h1Form.Size = new Size(269, 123);
+            h1Form.StartPosition = FormStartPosition.CenterScreen;
+            h1Form.ShowIcon = false;
+            h1Form.Text = "h1 header";
+            h1Form.Name = "h1Form";
+            h1Form.ShowInTaskbar = false;
+            h1Form.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            h1Form.MaximizeBox = false;
+            h1Form.Show();
+
+            Button h1Ok = new Button();
+            h1Ok.Location = new System.Drawing.Point(127, 54);
+            h1Ok.Name = "h1Ok";
+            h1Ok.Size = new System.Drawing.Size(37, 23);
+            h1Ok.Text = "OK";
+            h1Ok.Click += new EventHandler(this.h1Ok_Click);
+            h1Form.Controls.Add(h1Ok);
+
+            Button h1Cancel = new Button();
+            h1Cancel.Location = new System.Drawing.Point(170, 54);
+            h1Cancel.Name = "h1Cancel";
+            h1Cancel.Size = new System.Drawing.Size(75, 23);
+            h1Cancel.Text = "Cancel";
+            h1Cancel.Click += new EventHandler(this.h1Cancel_Click);
+            h1Form.Controls.Add(h1Cancel);
+
+            Label label1 = new Label();
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(12, 12);
+            label1.Size = new System.Drawing.Size(60, 13);
+            label1.Text = "header text";
+            h1Form.Controls.Add(label1);
+
+            TextBox headerName = new TextBox();
+            headerName.Location = new System.Drawing.Point(12, 28);
+            headerName.Name = "headerName";
+            headerName.Size = new System.Drawing.Size(233, 20);
+            h1Form.Controls.Add(headerName);
+        }
+        private void h2_Click(object sender, EventArgs e)
+        {
+            Form h2Form = new Form();
+            h2Form.Size = new Size(269, 123);
+            h2Form.StartPosition = FormStartPosition.CenterScreen;
+            h2Form.ShowIcon = false;
+            h2Form.Text = "h2 header";
+            h2Form.Name = "h2Form";
+            h2Form.ShowInTaskbar = false;
+            h2Form.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            h2Form.MaximizeBox = false;
+            h2Form.Show();
+
+            Button h2Ok = new Button();
+            h2Ok.Location = new System.Drawing.Point(127, 54);
+            h2Ok.Name = "h2Ok";
+            h2Ok.Size = new System.Drawing.Size(37, 23);
+            h2Ok.Text = "OK";
+            h2Ok.Click += new EventHandler(this.h2Ok_Click);
+            h2Form.Controls.Add(h2Ok);
+
+            Button h2Cancel = new Button();
+            h2Cancel.Location = new System.Drawing.Point(170, 54);
+            h2Cancel.Name = "h2Cancel";
+            h2Cancel.Size = new System.Drawing.Size(75, 23);
+            h2Cancel.Text = "Cancel";
+            h2Cancel.Click += new EventHandler(this.h2Cancel_Click);
+            h2Form.Controls.Add(h2Cancel);
+
+            Label label1 = new Label();
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(12, 12);
+            label1.Size = new System.Drawing.Size(60, 13);
+            label1.Text = "header text";
+            h2Form.Controls.Add(label1);
+
+            TextBox headerName = new TextBox();
+            headerName.Location = new System.Drawing.Point(12, 28);
+            headerName.Name = "headerName";
+            headerName.Size = new System.Drawing.Size(233, 20);
+            h2Form.Controls.Add(headerName);
+        }
+        private void h3_Click(object sender, EventArgs e)
+        {
+            Form h3Form = new Form();
+            h3Form.Size = new Size(269, 123);
+            h3Form.StartPosition = FormStartPosition.CenterScreen;
+            h3Form.ShowIcon = false;
+            h3Form.Text = "h3 header";
+            h3Form.Name = "h3Form";
+            h3Form.ShowInTaskbar = false;
+            h3Form.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            h3Form.MaximizeBox = false;
+            h3Form.Show();
+
+            Button h3Ok = new Button();
+            h3Ok.Location = new System.Drawing.Point(127, 54);
+            h3Ok.Name = "h3Ok";
+            h3Ok.Size = new System.Drawing.Size(37, 23);
+            h3Ok.Text = "OK";
+            h3Ok.Click += new EventHandler(this.h3Ok_Click);
+            h3Form.Controls.Add(h3Ok);
+
+            Button h3Cancel = new Button();
+            h3Cancel.Location = new System.Drawing.Point(170, 54);
+            h3Cancel.Name = "h3Cancel";
+            h3Cancel.Size = new System.Drawing.Size(75, 23);
+            h3Cancel.Text = "Cancel";
+            h3Cancel.Click += new EventHandler(this.h3Cancel_Click);
+            h3Form.Controls.Add(h3Cancel);
+
+            Label label1 = new Label();
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(12, 12);
+            label1.Size = new System.Drawing.Size(60, 13);
+            label1.Text = "header text";
+            h3Form.Controls.Add(label1);
+
+            TextBox headerName = new TextBox();
+            headerName.Location = new System.Drawing.Point(12, 28);
+            headerName.Name = "headerName";
+            headerName.Size = new System.Drawing.Size(233, 20);
+            h3Form.Controls.Add(headerName);
+        }
+        private void h4_Click(object sender, EventArgs e)
+        {
+            Form h4Form = new Form();
+            h4Form.Size = new Size(269, 123);
+            h4Form.StartPosition = FormStartPosition.CenterScreen;
+            h4Form.ShowIcon = false;
+            h4Form.Text = "h4 header";
+            h4Form.Name = "h4Form";
+            h4Form.ShowInTaskbar = false;
+            h4Form.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            h4Form.MaximizeBox = false;
+            h4Form.Show();
+
+            Button h4Ok = new Button();
+            h4Ok.Location = new System.Drawing.Point(127, 54);
+            h4Ok.Name = "h4Ok";
+            h4Ok.Size = new System.Drawing.Size(37, 23);
+            h4Ok.Text = "OK";
+            h4Ok.Click += new EventHandler(this.h4Ok_Click);
+            h4Form.Controls.Add(h4Ok);
+
+            Button h4Cancel = new Button();
+            h4Cancel.Location = new System.Drawing.Point(170, 54);
+            h4Cancel.Name = "h4Cancel";
+            h4Cancel.Size = new System.Drawing.Size(75, 23);
+            h4Cancel.Text = "Cancel";
+            h4Cancel.Click += new EventHandler(this.h4Cancel_Click);
+            h4Form.Controls.Add(h4Cancel);
+
+            Label label1 = new Label();
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(12, 12);
+            label1.Size = new System.Drawing.Size(60, 13);
+            label1.Text = "header text";
+            h4Form.Controls.Add(label1);
+
+            TextBox headerName = new TextBox();
+            headerName.Location = new System.Drawing.Point(12, 28);
+            headerName.Name = "headerName";
+            headerName.Size = new System.Drawing.Size(233, 20);
+            h4Form.Controls.Add(headerName);
+        }
+        private void h5_Click(object sender,EventArgs e)
+        {
+            Form h5Form = new Form();
+            h5Form.Size = new Size(269, 123);
+            h5Form.StartPosition = FormStartPosition.CenterScreen;
+            h5Form.ShowIcon = false;
+            h5Form.Text = "h5 header";
+            h5Form.Name = "h5Form";
+            h5Form.ShowInTaskbar = false;
+            h5Form.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            h5Form.MaximizeBox = false;
+            h5Form.Show();
+
+            Button h5Ok = new Button();
+            h5Ok.Location = new System.Drawing.Point(127, 54);
+            h5Ok.Name = "h5Ok";
+            h5Ok.Size = new System.Drawing.Size(37, 23);
+            h5Ok.Text = "OK";
+            h5Ok.Click += new EventHandler(this.h5Ok_Click);
+            h5Form.Controls.Add(h5Ok);
+
+            Button h5Cancel = new Button();
+            h5Cancel.Location = new System.Drawing.Point(170, 54);
+            h5Cancel.Name = "h5Cancel";
+            h5Cancel.Size = new System.Drawing.Size(75, 23);
+            h5Cancel.Text = "Cancel";
+            h5Cancel.Click += new EventHandler(this.h5Cancel_Click);
+            h5Form.Controls.Add(h5Cancel);
+
+            Label label1 = new Label();
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(12, 12);
+            label1.Size = new System.Drawing.Size(60, 13);
+            label1.Text = "header text";
+            h5Form.Controls.Add(label1);
+
+            TextBox headerName = new TextBox();
+            headerName.Location = new System.Drawing.Point(12, 28);
+            headerName.Name = "headerName";
+            headerName.Size = new System.Drawing.Size(233, 20);
+            h5Form.Controls.Add(headerName);
+        }
+        private void h6_Click(object sender,EventArgs e)
+        {
+            Form h6Form = new Form();
+            h6Form.Size = new Size(269, 123);
+            h6Form.StartPosition = FormStartPosition.CenterScreen;
+            h6Form.ShowIcon = false;
+            h6Form.Text = "h6 header";
+            h6Form.Name = "h6Form";
+            h6Form.ShowInTaskbar = false;
+            h6Form.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            h6Form.MaximizeBox = false;
+            h6Form.Show();
+
+            Button h6Ok = new Button();
+            h6Ok.Location = new System.Drawing.Point(127, 54);
+            h6Ok.Name = "h6Ok";
+            h6Ok.Size = new System.Drawing.Size(37, 23);
+            h6Ok.Text = "OK";
+            h6Ok.Click += new EventHandler(this.h6Ok_Click);
+            h6Form.Controls.Add(h6Ok);
+
+            Button h6Cancel = new Button();
+            h6Cancel.Location = new System.Drawing.Point(170, 54);
+            h6Cancel.Name = "h6Cancel";
+            h6Cancel.Size = new System.Drawing.Size(75, 23);
+            h6Cancel.Text = "Cancel";
+            h6Cancel.Click += new EventHandler(this.h6Cancel_Click);
+            h6Form.Controls.Add(h6Cancel);
+
+            Label label1 = new Label();
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(12, 12);
+            label1.Size = new System.Drawing.Size(60, 13);
+            label1.Text = "header text";
+            h6Form.Controls.Add(label1);
+
+            TextBox headerName = new TextBox();
+            headerName.Location = new System.Drawing.Point(12, 28);
+            headerName.Name = "headerName";
+            headerName.Size = new System.Drawing.Size(233, 20);
+            h6Form.Controls.Add(headerName);
+        }
         //=======================================UserInterface================================================//
         //=======================================Button Clicks===============================================//
+        private void h6Ok_Click(object sender, EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            textArea.SelectedText = string.Format("<h6>{0}</h6>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "headerName").Text);
+            frm.Close();
+        }
+        private void h6Cancel_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            frm.Close();
+        }
+        private void h5Ok_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            textArea.SelectedText = string.Format("<h5>{0}</h5>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "headerName").Text);
+            frm.Close();
+        }
+        private void h5Cancel_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            frm.Close();
+        }
+        private void h4Ok_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            textArea.SelectedText = string.Format("<h4>{0}</h4>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "headerName").Text);
+            frm.Close();
+        }
+        private void h4Cancel_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            frm.Close();
+        }
+        private void h3Ok_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            textArea.SelectedText = string.Format("<h3>{0}</h3>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "headerName").Text);
+            frm.Close();
+        }
+        private void h3Cancel_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            frm.Close();
+        }
+        private void h2Ok_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            textArea.SelectedText = string.Format("<h2>{0}</h2>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "headerName").Text);
+            frm.Close();
+        }
+        private void h2Cancel_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            frm.Close();
+        }
+        private void h1Ok_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            textArea.SelectedText = string.Format("<h1>{0}</h1>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "headerName").Text);
+            frm.Close();
+        }
+        private void h1Cancel_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            frm.Close();
+        }
+        int index2 = 1;
+        private void removeListItemU_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            if (index2 > 1)
+            {
+                frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "addListItemU").Enabled = true;
+                frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "ulOk").Location = new Point(frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "ulOk").Location.X, frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "ulOk").Location.Y - 30);
+                frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "ulCancel").Location = new Point(frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "ulCancel").Location.X, frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "ulCancel").Location.Y - 30);
+                index2--;
+                frm.Controls.RemoveByKey("txt" + index2);
+                frm.Controls.RemoveByKey("lbl" + index2);
+                frm.Height -= 30;
+            }
+            if (index2 == 1)
+            {
+                frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "removeListItemU").Enabled = false;
+            }
+        }
+        private void addListItemU_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            string lbldflt = "list item";
+            Label l = new Label();
+            TextBox t = new TextBox();
+            frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "removeListItemU").Enabled = true;
+            frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "ulOk").Location = new Point(frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "ulOk").Location.X, frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "ulOk").Location.Y + 30);
+            frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "ulCancel").Location = new Point(frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "ulCancel").Location.X, frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "ulCancel").Location.Y + 30);
+            l.Text = lbldflt + " " + index2;
+            l.Width = frm.Controls.OfType<Label>().FirstOrDefault(y => y.Name == "label1").Width + 15;
+            l.Location = new Point(frm.Controls.OfType<Label>().FirstOrDefault(y => y.Name == "label1").Location.X, frm.Controls.OfType<Label>().FirstOrDefault(y => y.Name == "label1").Location.Y + 30 * index2);
+            l.Name = "lbl" + index2;
+            t.Name = "txt" + index2;
+            t.Width = frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "listItem").Width;
+            t.Location = new Point(frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "listItem").Location.X, frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "listItem").Location.Y + 30 * index2);
+            index2++;
+            if (index2 > 9)
+            {
+                frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "addListItemU").Enabled = false;
+            }
+            frm.Controls.Add(l);
+            frm.Controls.Add(t);
+            frm.Height += 30;
+        }
+        private void ulOk_Click(object sender,EventArgs e)
+        {
+            var ctrl = (Control)sender;
+            var frm = ctrl.FindForm();
+            textArea.SelectionLength = 0;
+            textArea.SelectedText = "<ul>\n";
+            if (frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "listItem").Text != String.Empty)
+            {
+                textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "listItem").Text);
+            }
+            if (frm.Controls.ContainsKey("txt1") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt1").Text != String.Empty)
+            {
+                textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt1").Text);
+            }
+            if (frm.Controls.ContainsKey("txt2") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt2").Text != String.Empty)
+            {
+                textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt2").Text);
+            }
+            if (frm.Controls.ContainsKey("txt3") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt3").Text != String.Empty)
+            {
+                textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt3").Text);
+            }
+            if (frm.Controls.ContainsKey("txt4") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt4").Text != String.Empty)
+            {
+                textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt4").Text);
+            }
+            if (frm.Controls.ContainsKey("txt5") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt5").Text != String.Empty)
+            {
+                textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt5").Text);
+            }
+            if (frm.Controls.ContainsKey("txt6") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt6").Text != String.Empty)
+            {
+                textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt6").Text);
+            }
+            if (frm.Controls.ContainsKey("txt7") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt7").Text != String.Empty)
+            {
+                textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt7").Text);
+            }
+            if (frm.Controls.ContainsKey("txt8") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt8").Text != String.Empty)
+            {
+                textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt8").Text);
+            }
+            if (frm.Controls.ContainsKey("txt9") && frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt9").Text != String.Empty)
+            {
+                textArea.SelectedText = string.Format("<li>{0}</li>\n", frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "txt9").Text);
+            }
+            frm.Close();
+            textArea.SelectedText = "</ul>\n";
+        }
         private void olOk_Click(object sender,EventArgs e)
         {
             var ctrl = (Control)sender;
@@ -8158,7 +8639,7 @@ namespace Loxie
             var frm = ctrl.FindForm();
             frm.Close();
         }
-        int index2=1;
+        int indexO=1;
         private void addListItem_Click(object sender,EventArgs e)
         {
             var ctrl = (Control)sender;
@@ -8169,15 +8650,15 @@ namespace Loxie
             frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "removeListItem").Enabled = true;
             frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olOk").Location = new Point(frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olOk").Location.X, frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olOk").Location.Y + 30);
             frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olCancel").Location = new Point(frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olCancel").Location.X, frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olCancel").Location.Y + 30);
-            l.Text = lbldflt + " " + index2;
+            l.Text = lbldflt + " " + indexO;
             l.Width = frm.Controls.OfType<Label>().FirstOrDefault(y => y.Name == "label1").Width + 15;
-            l.Location = new Point(frm.Controls.OfType<Label>().FirstOrDefault(y => y.Name == "label1").Location.X, frm.Controls.OfType<Label>().FirstOrDefault(y => y.Name == "label1").Location.Y + 30 * index2);
-            l.Name = "lbl" + index2;
-            t.Name = "txt" + index2;
+            l.Location = new Point(frm.Controls.OfType<Label>().FirstOrDefault(y => y.Name == "label1").Location.X, frm.Controls.OfType<Label>().FirstOrDefault(y => y.Name == "label1").Location.Y + 30 * indexO);
+            l.Name = "lbl" + indexO;
+            t.Name = "txt" + indexO;
             t.Width = frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "listItem").Width;
-            t.Location = new Point(frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "listItem").Location.X, frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "listItem").Location.Y + 30 * index2);
-            index2++;
-            if (index2 > 9)
+            t.Location = new Point(frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "listItem").Location.X, frm.Controls.OfType<TextBox>().FirstOrDefault(y => y.Name == "listItem").Location.Y + 30 * indexO);
+            indexO++;
+            if (indexO > 9)
             {
                 frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "addListItem").Enabled = false;
             }
@@ -8189,17 +8670,17 @@ namespace Loxie
         {
             var ctrl = (Control)sender;
             var frm = ctrl.FindForm();
-            if (index2 > 1)
+            if (indexO > 1)
             {
                 frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "addListItem").Enabled = true;
                 frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olOk").Location = new Point(frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olOk").Location.X, frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olOk").Location.Y - 30);
                 frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olCancel").Location = new Point(frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olCancel").Location.X, frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "olCancel").Location.Y - 30);
-                index2--;
-                frm.Controls.RemoveByKey("txt" + index2);
-                frm.Controls.RemoveByKey("lbl" + index2);
+                indexO--;
+                frm.Controls.RemoveByKey("txt" + indexO);
+                frm.Controls.RemoveByKey("lbl" + indexO);
                 frm.Height -= 30;
             }
-            if (index2 == 1)
+            if (indexO == 1)
             {
                 frm.Controls.OfType<Button>().FirstOrDefault(y => y.Name == "removeListItem").Enabled = false;
             }
