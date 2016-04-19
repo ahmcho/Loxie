@@ -68,10 +68,12 @@ namespace Loxie
         }
         private void htmlTemplate()
         {
+            loadStyleToolStripMenuItem.Visible = true;
             TandB.ColumnCount = 2;
             TandB.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             TandB.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TandB.Location = new Point(12, 110);
+            TandB.Location = new Point(12, 110);
+            TandB.Height = 505;
             if (this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu") != null)
             {
                 this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu").Dispose();
@@ -938,6 +940,7 @@ namespace Loxie
         }
         private void phpTemplate()
         {
+            loadStyleToolStripMenuItem.Visible = false;
             TandB.ColumnCount = 1;
             TandB.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             TandB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
@@ -1289,11 +1292,16 @@ namespace Loxie
         }
         private void cssTemplate()
         {
+            loadStyleToolStripMenuItem.Visible = false;
             TandB.ColumnCount = 1;
             TandB.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             TandB.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
+            if (this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu") != null)
+            {
+                this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu").Dispose();
+            }
             for (int i = this.Controls.Count - 1; i >= 0; i--)
             {
                 Button control = this.Controls[i] as Button;
@@ -1308,7 +1316,7 @@ namespace Loxie
             textArea.AppendText(" { \n\n");
             textArea.AppendText(" } \n");
             browserWindow.Visible = false;
-            TandB.Height = 547;
+            TandB.Height = 515;
             TandB.Location = new Point(12, 97);
 
             var ctrl = (Control)this;
@@ -14916,6 +14924,7 @@ namespace Loxie
         }
         private void blackBgTSMI_Click(object sender, EventArgs e)
         {
+            
             textArea.BackColor = Color.Black;
             textArea.ForeColor = Color.White;
             fileToolStripMenuItem1.ForeColor = System.Drawing.Color.DarkGray;
@@ -14966,7 +14975,8 @@ namespace Loxie
             haqqindaTSMI.ForeColor = System.Drawing.Color.DarkGray;
             əlaqəToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             əlaqəToolStripMenuItem.ForeColor = System.Drawing.Color.DarkGray;
-
+            loadStyleToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+            loadStyleToolStripMenuItem.ForeColor = System.Drawing.Color.DarkGray;
             var ctrl = (Control)this;
             var frm = ctrl.FindForm();
             Label label = null;
@@ -15064,7 +15074,8 @@ namespace Loxie
             haqqindaTSMI.ForeColor = System.Drawing.Color.Black;
             əlaqəToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             əlaqəToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
-
+            loadStyleToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
+            loadStyleToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             var ctrl = (Control)this;
             var frm = ctrl.FindForm();
             Label label = null;

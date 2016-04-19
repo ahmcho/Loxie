@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="baseline" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\baseline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="cur (9)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cur (9).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -129,6 +126,9 @@
   </data>
   <data name="cur (25)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cur (25).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cur (24)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cur (24).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cur (26)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cur (26).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,8 +151,8 @@
   <data name="align-left" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\align-left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="youtube1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\youtube.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cur (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cur (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cur (22)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cur (22).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,6 +169,9 @@
   <data name="space-around" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\space-around.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="align-right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\align-right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="flex-start1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\flex-start.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -183,9 +186,6 @@
   </data>
   <data name="stretch" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\stretch.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="loxie1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loxie1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dotted" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\dotted.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,14 +202,17 @@
   <data name="ridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ridge.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="loxie_cover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loxie_cover.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="cur (27)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cur (27).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="loxie" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loxie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="align-center" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\align-center.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="collapsed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\collapsed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="youtube" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\youtube.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,14 +226,11 @@
   <data name="cur (10)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cur (10).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cur (3)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cur (3).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="loxie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loxie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="flex-end1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\flex-end.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="align-right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\align-right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="loxie1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loxie1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cur (8)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cur (8).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,8 +238,8 @@
   <data name="cur (18)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cur (18).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cur (24)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cur (24).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="youtube1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\youtube.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cur (5)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cur (5).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -253,8 +253,11 @@
   <data name="cur (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cur (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="flex-end" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="flex-end1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\flex-end.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cur (13)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cur (13).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cur (32)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cur (32).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -262,11 +265,11 @@
   <data name="cur (28)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cur (28).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="flex-end" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flex-end.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="center" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\center.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="cur (11)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cur (11).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cur (6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cur (6).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -280,8 +283,11 @@
   <data name="solid" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\solid.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cur (13)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cur (13).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="baseline" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\baseline.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cur (17)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cur (17).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cur (30)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cur (30).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -295,13 +301,13 @@
   <data name="cur (19)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cur (19).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cur (17)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\cur (17).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="double" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\double.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="loxie_cover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loxie_cover.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cur (11)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cur (11).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="expanded" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\expanded.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -133,6 +133,16 @@ namespace Loxie.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap collapsed {
+            get {
+                object obj = ResourceManager.GetObject("collapsed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cur__1_ {
             get {
                 object obj = ResourceManager.GetObject("cur (1)", resourceCulture);
@@ -466,6 +476,16 @@ namespace Loxie.Properties {
         internal static System.Drawing.Bitmap dotted {
             get {
                 object obj = ResourceManager.GetObject("dotted", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap expanded {
+            get {
+                object obj = ResourceManager.GetObject("expanded", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
