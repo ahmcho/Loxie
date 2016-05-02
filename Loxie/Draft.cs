@@ -17,5 +17,10 @@ namespace Loxie
         {
             InitializeComponent();
         }
+
+        private void DraftForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

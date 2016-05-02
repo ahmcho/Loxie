@@ -78,6 +78,10 @@ namespace Loxie
             {
                 this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu").Dispose();
             }
+            if (this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "cssMenu") != null)
+            {
+                this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "cssMenu").Dispose();
+            }
             for (int i = this.Controls.Count - 1; i >= 0; i--)
             {
                 Button control = this.Controls[i] as Button;
@@ -961,6 +965,10 @@ namespace Loxie
             {
                 this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu").Dispose();
             }
+            if (this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "cssMenu") != null)
+            {
+                this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "cssMenu").Dispose();
+            }
             textArea.Clear();
             syntax.Text = "Syntax [PHP]";
             textArea.AppendText("<?php \necho \"Hello,world!\"; \n?>");
@@ -1302,6 +1310,10 @@ namespace Loxie
             {
                 this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu").Dispose();
             }
+            if (this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "cssMenu") !=null)
+            {
+                this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "cssMenu").Dispose();
+            }
             for (int i = this.Controls.Count - 1; i >= 0; i--)
             {
                 Button control = this.Controls[i] as Button;
@@ -1377,288 +1389,757 @@ namespace Loxie
                     }
                 }
             }
+            // 
+            // tableMenu
+            //
+            TableLayoutPanel cssMenu = new TableLayoutPanel();
+            cssMenu.BackColor = System.Drawing.Color.Transparent;
+            cssMenu.ColumnCount = 1;
+            cssMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            cssMenu.Location = new System.Drawing.Point(12, 29);
+            cssMenu.Name = "cssMenu";
+            cssMenu.BackColor = Color.Transparent;
+            cssMenu.RowCount = 1;
+            cssMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            cssMenu.Size = new System.Drawing.Size(975, 62);
+            // 
+            // tabControl1
+            //
+            TabControl cssMenuTabs = new TabControl();
+            cssMenuTabs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            cssMenuTabs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            cssMenuTabs.ItemSize = new System.Drawing.Size(300, 18);
+            cssMenuTabs.Location = new System.Drawing.Point(3, 3);
+            cssMenuTabs.Name = "cssMenuTabs";
+            cssMenuTabs.Size = new System.Drawing.Size(969, 56);
+            cssMenuTabs.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            // 
+            // tabPage1
+            //
+            TabPage tabPage1 = new TabPage(); 
+            tabPage1.Location = new System.Drawing.Point(4, 22);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            tabPage1.Size = new System.Drawing.Size(961, 30);
+            tabPage1.Text = "A-B-C-D-E";
+            // 
+            // button15
+            //
+            Button button15 = new Button(); 
+            button15.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button15.Location = new System.Drawing.Point(854, 4);
+            button15.Name = "button15";
+            button15.Size = new System.Drawing.Size(101, 23);
+            button15.Text = "element-size";
+            button15.Click += new EventHandler(this.elementSizes_Click);
+            // 
+            // button14
+            //
+            Button button14 = new Button(); 
+            button14.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button14.Location = new System.Drawing.Point(801, 4);
+            button14.Name = "button14";
+            button14.Size = new System.Drawing.Size(51, 23);
+            button14.TabIndex = 13;
+            button14.Text = "display";
+            button14.Click += new EventHandler(this.displayClick);
+            // 
+            // button13
+            //
+            Button button13 = new Button(); 
+            button13.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button13.Location = new System.Drawing.Point(745, 4);
+            button13.Name = "button13";
+            button13.Size = new System.Drawing.Size(54, 23);
+            button13.Text = "counter";
+            button13.Click += new EventHandler(this.counter_Click);
+            // 
+            // button12
+            //
+            Button button12 = new Button(); 
+            button12.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button12.Location = new System.Drawing.Point(694, 4);
+            button12.Name = "button12";
+            button12.Size = new System.Drawing.Size(49, 23);
+            button12.Text = "cursor";
+            button12.Click += new EventHandler(this.cursor_Click);
+            // 
+            // button11
+            //
+            Button button11 = new Button(); 
+            button11.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button11.Location = new System.Drawing.Point(638, 4);
+            button11.Name = "button11";
+            button11.Size = new System.Drawing.Size(54, 23);
+            button11.Text = "content";
+            button11.Click += new EventHandler(this.content_Click);
+            // 
+            // button10
+            //
+            Button button10 = new Button(); 
+            button10.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button10.Location = new System.Drawing.Point(582, 4);
+            button10.Name = "button10";
+            button10.Size = new System.Drawing.Size(54, 23);
+            button10.Text = "column";
+            button10.Click += new EventHandler(this.columns_Click);
+            // 
+            // button9
+            // 
+            Button button9 = new Button();
+            button9.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button9.Location = new System.Drawing.Point(536, 4);
+            button9.Name = "button9";
+            button9.Size = new System.Drawing.Size(44, 23);
+            button9.Text = "color";
+            button9.Click += new System.EventHandler(this.setColor_Click);
+            // 
+            // button8
+            //
+            Button button8 = new Button(); 
+            button8.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button8.Location = new System.Drawing.Point(494, 4);
+            button8.Name = "button8";
+            button8.Size = new System.Drawing.Size(40, 23);
+            button8.Text = "clear";
+            button8.Click += new EventHandler(this.clear_Click);
+            // 
+            // button7
+            //
+            Button button7 = new Button(); 
+            button7.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button7.Location = new System.Drawing.Point(417, 4);
+            button7.Name = "button7";
+            button7.Size = new System.Drawing.Size(75, 23);
+            button7.Text = "caption-side";
+            button7.Click += new EventHandler(this.captionSide_Click);
+            // 
+            // button6
+            //
+            Button button6 = new Button(); 
+            button6.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button6.Location = new System.Drawing.Point(348, 4);
+            button6.Name = "button6";
+            button6.Size = new System.Drawing.Size(67, 23);
+            button6.Text = "box-sizing";
+            button6.Click += new EventHandler(this.boxClick);
+            // 
+            // button5
+            // 
+            Button button5 = new Button();
+            button5.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button5.Location = new System.Drawing.Point(271, 4);
+            button5.Name = "button5";
+            button5.Size = new System.Drawing.Size(75, 23);
+            button5.Text = "box-shadow";
+            button5.Click += new EventHandler(this.shadowClick);
+            // 
+            // button4
+            //
+            Button button4 = new Button(); 
+            button4.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button4.Location = new System.Drawing.Point(219, 4);
+            button4.Name = "button4";
+            button4.Size = new System.Drawing.Size(50, 23);
+            button4.Text = "border";
+            button4.Click += new System.EventHandler(border_Click);
+            // 
+            // button3
+            //
+            Button button3 = new Button(); 
+            button3.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button3.Location = new System.Drawing.Point(142, 4);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(75, 23);
+            button3.Text = "background";
+            button3.Click += new System.EventHandler(bgImg_Click);
+            // 
+            // button2
+            // 
+            Button button2 = new Button();
+            button2.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button2.Location = new System.Drawing.Point(85, 4);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(55, 23);
+            button2.Text = "animate";
+            button2.Click += new EventHandler(this.animateClick);
+            // 
+            // button1
+            //
+            Button button1 = new Button(); 
+            button1.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button1.Location = new System.Drawing.Point(3, 4);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(80, 23);
+            button1.Text = "align-content";
+            button1.Click += new System.EventHandler(this.align_Click);
+            // 
+            // tabPage2
+            //
+            TabPage tabPage2 = new TabPage(); 
+            tabPage2.Location = new System.Drawing.Point(4, 22);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            tabPage2.Size = new System.Drawing.Size(961, 30);
+            tabPage2.Text = "F-L-M-O-P-Q-R-T";
+            // 
+            // button30
+            //
+            Button button30 = new Button();
+            button30.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button30.Location = new System.Drawing.Point(877, 4);
+            button30.Name = "button30";
+            button30.Size = new System.Drawing.Size(78, 23);
+            button30.Text = "text";
+            button30.Click += new System.EventHandler(this.text_Click);
+            // 
+            // button29
+            //
+            Button button29 = new Button(); 
+            button29.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button29.Location = new System.Drawing.Point(827, 4);
+            button29.Name = "button29";
+            button29.Size = new System.Drawing.Size(47, 23);
+            button29.Text = "resize";
+            button29.Click += new EventHandler(this.resize_Click);
+            // 
+            // button28
+            //
+            Button button28 = new Button(); 
+            button28.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button28.Location = new System.Drawing.Point(775, 4);
+            button28.Name = "button28";
+            button28.Size = new System.Drawing.Size(49, 23);
+            button28.Text = "quotes";
+            button28.Click += new EventHandler(this.quotes_Click);
+            // 
+            // button27
+            //
+            Button button27 = new Button(); 
+            button27.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button27.Location = new System.Drawing.Point(715, 4);
+            button27.Name = "button27";
+            button27.Size = new System.Drawing.Size(57, 23);
+            button27.Text = "position";
+            button27.Click += new System.EventHandler(position_Click);
+            // 
+            // button26
+            //
+            Button button26 = new Button(); 
+            button26.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button26.Location = new System.Drawing.Point(641, 4);
+            button26.Name = "button26";
+            button26.Size = new System.Drawing.Size(71, 23);
+            button26.Text = "page-break";
+            button26.Click += new EventHandler(this.pageBreak_Click);
+            // 
+            // button25
+            //
+            Button button25 = new Button(); 
+            button25.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button25.Location = new System.Drawing.Point(580, 4);
+            button25.Name = "button25";
+            button25.Size = new System.Drawing.Size(58, 23);
+            button25.Text = "padding";
+            button25.Click += new System.EventHandler(padding_Click);
+            // 
+            // button24
+            //
+            Button button24 = new Button(); 
+            button24.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button24.Location = new System.Drawing.Point(524, 4);
+            button24.Name = "button24";
+            button24.Size = new System.Drawing.Size(53, 23);
+            button24.Text = "opacity";
+            button24.Click += new System.EventHandler(opacity_Click);
+            // 
+            // button23
+            //
+            Button button23 = new Button(); 
+            button23.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button23.Location = new System.Drawing.Point(458, 4);
+            button23.Name = "button23";
+            button23.Size = new System.Drawing.Size(63, 23);
+            button23.Text = "overflow";
+            button23.Click += new EventHandler(this.overflow_Click);
+            // 
+            // button22
+            //
+            Button button22 = new Button(); 
+            button22.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button22.Location = new System.Drawing.Point(397, 4);
+            button22.Name = "button22";
+            button22.Size = new System.Drawing.Size(59, 23);
+            button22.Text = "object-fit";
+            button22.Click += new EventHandler(this.objectfit_Click);
+            // 
+            // button21
+            //
+            Button button21 = new Button(); 
+            button21.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button21.Location = new System.Drawing.Point(345, 4);
+            button21.Name = "button21";
+            button21.Size = new System.Drawing.Size(50, 23);
+            button21.Text = "margin";
+            button21.Click += new EventHandler(this.showForm_Click);
+            // 
+            // button20
+            //
+            Button button20 = new Button(); 
+            button20.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button20.Location = new System.Drawing.Point(286, 4);
+            button20.Name = "button20";
+            button20.Size = new System.Drawing.Size(57, 23);
+            button20.Text = "list-style";
+            button20.Click += new EventHandler(this.listStyle_Click);
+            // 
+            // button19
+            // 
+            Button button19 = new Button();
+            button19.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button19.Location = new System.Drawing.Point(201, 4);
+            button19.Name = "button19";
+            button19.Size = new System.Drawing.Size(83, 23);
+            button19.Text = "letter-spacing";
+            button19.Click += new EventHandler(this.letterspacing_Click);
+            // 
+            // button18
+            //
+            Button button18 = new Button();
+            button18.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button18.Location = new System.Drawing.Point(85, 4);
+            button18.Name = "button18";
+            button18.Size = new System.Drawing.Size(114, 23);
+            button18.Text = "left-right-top-bottom";
+            button18.Click += new EventHandler(this.lrtb_Click);
+            // 
+            // button17
+            // 
+            Button button17 = new Button();
+            button17.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button17.Location = new System.Drawing.Point(48, 4);
+            button17.Name = "button17";
+            button17.Size = new System.Drawing.Size(35, 23);
+            button17.Text = "font";
+            button17.Click += new System.EventHandler(setFont_Click);
+            // 
+            // button16
+            //
+            Button button16 = new Button(); 
+            button16.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button16.Location = new System.Drawing.Point(3, 4);
+            button16.Name = "button16";
+            button16.Size = new System.Drawing.Size(43, 23);
+            button16.Text = "filters";
+            button16.Click += new EventHandler(this.filter_Click);
+            // 
+            // tabPage3
+            //
+            TabPage tabPage3 = new TabPage(); 
+            tabPage3.Location = new System.Drawing.Point(4, 22);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Size = new System.Drawing.Size(961, 30);
+            tabPage3.Text = "T-V-W";
+            // 
+            // button37
+            //
+            Button button37 = new Button();  
+            button37.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button37.Location = new System.Drawing.Point(409, 4);
+            button37.Name = "button37";
+            button37.Size = new System.Drawing.Size(43, 23);
+            button37.Text = "white";
+            button37.Click += new EventHandler(this.white_Click);
+            // 
+            // button36
+            //
+            Button button36 = new Button(); 
+            button36.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button36.Location = new System.Drawing.Point(364, 4);
+            button36.Name = "button36";
+            button36.Size = new System.Drawing.Size(43, 23);
+            button36.Text = "word";
+            button36.Click += new EventHandler(this.word_Click);
+            // 
+            // button35
+            //
+            Button button35 = new Button(); 
+            button35.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button35.Location = new System.Drawing.Point(297, 4);
+            button35.Name = "button35";
+            button35.Size = new System.Drawing.Size(64, 23);
+            button35.Text = "visibility";
+            button35.Click += new EventHandler(this.visibility_Click);
+            // 
+            // button34
+            //
+            Button button34 = new Button(); 
+            button34.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button34.Location = new System.Drawing.Point(232, 4);
+            button34.Name = "button34";
+            button34.Size = new System.Drawing.Size(62, 23);
+            button34.Text = "transition";
+            button34.Click += new EventHandler(this.transition_Click);
+            // 
+            // button33
+            //
+            Button button33 = new Button(); 
+            button33.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button33.Location = new System.Drawing.Point(167, 4);
+            button33.Name = "button33";
+            button33.Size = new System.Drawing.Size(62, 23);
+            button33.Text = "transform";
+            button33.Click += new EventHandler(this.transform_Click);
+            // 
+            // button32
+            //
+            Button button32 = new Button(); 
+            button32.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button32.Location = new System.Drawing.Point(81, 4);
+            button32.Name = "button32";
+            button32.Size = new System.Drawing.Size(83, 23);
+            button32.Text = "text-transform";
+            button32.Click += new System.EventHandler(this.textTransform_Click);
+            // 
+            // button31
+            //
+            Button button31 = new Button(); 
+            button31.Font = new System.Drawing.Font("Palatino Linotype", 8.25F);
+            button31.Location = new System.Drawing.Point(3, 4);
+            button31.Name = "button31";
+            button31.Size = new System.Drawing.Size(75, 23);
+            button31.Text = "text-shadow";
+            button31.Click += new System.EventHandler(this.textShadow_Click);
 
-            Button newEntry = new Button();
-            newEntry.Visible = true;
-            newEntry.Text = "New entry";
-            newEntry.Size = new Size(129, 23);
-            newEntry.Location = new Point(863, 72);
-            this.Controls.Add(newEntry);
-            newEntry.Click += new System.EventHandler(this.newEntry_Click);
+            /*
+            Controls.Add-s
+            */
+            cssMenu.Controls.Add(cssMenuTabs, 0, 0);
+            cssMenuTabs.Controls.Add(tabPage1);
+            cssMenuTabs.Controls.Add(tabPage2);
+            cssMenuTabs.Controls.Add(tabPage3);
+            tabPage1.Controls.Add(button15);
+            tabPage1.Controls.Add(button14);
+            tabPage1.Controls.Add(button13);
+            tabPage1.Controls.Add(button12);
+            tabPage1.Controls.Add(button11);
+            tabPage1.Controls.Add(button10);
+            tabPage1.Controls.Add(button9);
+            tabPage1.Controls.Add(button8);
+            tabPage1.Controls.Add(button7);
+            tabPage1.Controls.Add(button6);
+            tabPage1.Controls.Add(button5);
+            tabPage1.Controls.Add(button4);
+            tabPage1.Controls.Add(button3);
+            tabPage1.Controls.Add(button2);
+            tabPage1.Controls.Add(button1);
+            tabPage2.Controls.Add(button30);
+            tabPage2.Controls.Add(button29);
+            tabPage2.Controls.Add(button28);
+            tabPage2.Controls.Add(button27);
+            tabPage2.Controls.Add(button26);
+            tabPage2.Controls.Add(button25);
+            tabPage2.Controls.Add(button24);
+            tabPage2.Controls.Add(button23);
+            tabPage2.Controls.Add(button22);
+            tabPage2.Controls.Add(button21);
+            tabPage2.Controls.Add(button20);
+            tabPage2.Controls.Add(button19);
+            tabPage2.Controls.Add(button18);
+            tabPage2.Controls.Add(button17);
+            tabPage2.Controls.Add(button16);
+            tabPage3.Controls.Add(button37);
+            tabPage3.Controls.Add(button36);
+            tabPage3.Controls.Add(button35);
+            tabPage3.Controls.Add(button34);
+            tabPage3.Controls.Add(button33);
+            tabPage3.Controls.Add(button32);
+            tabPage3.Controls.Add(button31);
+            this.Controls.Add(cssMenu);
 
-            Button setColor = new Button();
-            setColor.Visible = true;
-            setColor.Text = "color";
-            setColor.Size = new Size(45, 23);
-            setColor.Location = new Point(704, 72);
-            this.Controls.Add(setColor);
-            setColor.Click += new System.EventHandler(this.setColor_Click);
+            //Button newEntry = new Button();
+            //newEntry.Visible = true;
+            //newEntry.Text = "New entry";
+            //newEntry.Size = new Size(129, 23);
+            //newEntry.Location = new Point(863, 72);
+            //this.Controls.Add(newEntry);
+            //newEntry.Click += new System.EventHandler(this.newEntry_Click);
 
-            Button text = new Button();
-            text.Visible = true;
-            text.Text = "text";
-            text.Size = new Size(73, 23);
-            text.Location = new Point(749, 72);
-            this.Controls.Add(text);
-            text.Click += new System.EventHandler(this.text_Click);
+            //Button setColor = new Button();
+            //setColor.Visible = true;
+            //setColor.Text = "color";
+            //setColor.Size = new Size(45, 23);
+            //setColor.Location = new Point(704, 72);
+            //this.Controls.Add(setColor);
+            //setColor.Click += new System.EventHandler(this.setColor_Click);
 
-            Button setFont = new Button();
-            setFont.Text = "font";
-            setFont.Visible = true;
-            setFont.Size = new Size(50, 23);
-            setFont.Location = new Point(654, 72);
-            this.Controls.Add(setFont);
-            setFont.Click += new System.EventHandler(setFont_Click);
+            //Button text = new Button();
+            //text.Visible = true;
+            //text.Text = "text";
+            //text.Size = new Size(73, 23);
+            //text.Location = new Point(749, 72);
+            //this.Controls.Add(text);
+            //text.Click += new System.EventHandler(this.text_Click);
 
-            Button showForm = new Button();
-            showForm.Text = "margin";
-            showForm.Visible = true;
-            showForm.Size = new Size(50, 23);
-            showForm.Location = new Point(604, 72);
-            this.Controls.Add(showForm);
-            showForm.Click += new System.EventHandler(showForm_Click);
+            //Button setFont = new Button();
+            //setFont.Text = "font";
+            //setFont.Visible = true;
+            //setFont.Size = new Size(50, 23);
+            //setFont.Location = new Point(654, 72);
+            //this.Controls.Add(setFont);
+            //setFont.Click += new System.EventHandler(setFont_Click);
 
-            Button bgImg = new Button();
-            bgImg.Text = "background";
-            bgImg.Visible = true;
-            bgImg.Size = new Size(75, 23);
-            bgImg.Location = new Point(529, 72);
-            this.Controls.Add(bgImg);
-            bgImg.Click += new System.EventHandler(bgImg_Click);
+            //Button showForm = new Button();
+            //showForm.Text = "margin";
+            //showForm.Visible = true;
+            //showForm.Size = new Size(50, 23);
+            //showForm.Location = new Point(604, 72);
+            //this.Controls.Add(showForm);
+            //showForm.Click += new System.EventHandler(showForm_Click);
 
-            Button border = new Button();
-            border.Text = "border";
-            border.Visible = true;
-            border.Size = new Size(51, 23);
-            border.Location = new Point(478, 72);
-            this.Controls.Add(border);
-            border.Click += new System.EventHandler(border_Click);
+            //Button bgImg = new Button();
+            //bgImg.Text = "background";
+            //bgImg.Visible = true;
+            //bgImg.Size = new Size(75, 23);
+            //bgImg.Location = new Point(529, 72);
+            //this.Controls.Add(bgImg);
+            //bgImg.Click += new System.EventHandler(bgImg_Click);
 
-            Button padding = new Button();
-            padding.Text = "padding";
-            padding.Visible = true;
-            padding.Size = new Size(55, 23);
-            padding.Location = new Point(423, 72);
-            this.Controls.Add(padding);
-            padding.Click += new System.EventHandler(padding_Click);
+            //Button border = new Button();
+            //border.Text = "border";
+            //border.Visible = true;
+            //border.Size = new Size(51, 23);
+            //border.Location = new Point(478, 72);
+            //this.Controls.Add(border);
+            //border.Click += new System.EventHandler(border_Click);
 
-            Button position = new Button();
-            position.Text = "position";
-            position.Visible = true;
-            position.Size = new Size(61, 23);
-            position.Location = new Point(362, 72);
-            this.Controls.Add(position);
-            position.Click += new System.EventHandler(position_Click);
+            //Button padding = new Button();
+            //padding.Text = "padding";
+            //padding.Visible = true;
+            //padding.Size = new Size(55, 23);
+            //padding.Location = new Point(423, 72);
+            //this.Controls.Add(padding);
+            //padding.Click += new System.EventHandler(padding_Click);
 
-            Button opacity = new Button();
-            opacity.Text = "opacity";
-            opacity.Visible = true;
-            opacity.Size = new Size(56, 23);
-            opacity.Location = new Point(306, 72);
-            this.Controls.Add(opacity);
-            opacity.Click += new System.EventHandler(opacity_Click);
+            //Button position = new Button();
+            //position.Text = "position";
+            //position.Visible = true;
+            //position.Size = new Size(61, 23);
+            //position.Location = new Point(362, 72);
+            //this.Controls.Add(position);
+            //position.Click += new System.EventHandler(position_Click);
 
-            Button textTransform = new Button();
-            textTransform.Text = "text-transform";
-            textTransform.Visible = true;
-            textTransform.Size = new Size(85, 23);
-            textTransform.Location = new Point(221, 72);
-            textTransform.Click += new System.EventHandler(this.textTransform_Click);
-            this.Controls.Add(textTransform);
+            //Button opacity = new Button();
+            //opacity.Text = "opacity";
+            //opacity.Visible = true;
+            //opacity.Size = new Size(56, 23);
+            //opacity.Location = new Point(306, 72);
+            //this.Controls.Add(opacity);
+            //opacity.Click += new System.EventHandler(opacity_Click);
 
-            Button textShadow = new Button();
-            textShadow.Text = "text-shadow";
-            textShadow.Visible = true;
-            textShadow.Size = new Size(75, 23);
-            textShadow.Location = new Point(146, 72);
-            textShadow.Click += new System.EventHandler(this.textShadow_Click);
-            this.Controls.Add(textShadow);
+            //Button textTransform = new Button();
+            //textTransform.Text = "text-transform";
+            //textTransform.Visible = true;
+            //textTransform.Size = new Size(85, 23);
+            //textTransform.Location = new Point(221, 72);
+            //textTransform.Click += new System.EventHandler(this.textTransform_Click);
+            //this.Controls.Add(textTransform);
 
-            Button align = new Button();
-            align.Text = "align-content";
-            align.Visible = true;
-            align.Size = new Size(80, 23);
-            align.Location = new Point(66, 72);
-            align.Click += new System.EventHandler(this.align_Click);
-            this.Controls.Add(align);
+            //Button textShadow = new Button();
+            //textShadow.Text = "text-shadow";
+            //textShadow.Visible = true;
+            //textShadow.Size = new Size(75, 23);
+            //textShadow.Location = new Point(146, 72);
+            //textShadow.Click += new System.EventHandler(this.textShadow_Click);
+            //this.Controls.Add(textShadow);
 
-            Button animate = new Button();
-            animate.Text = "animate";
-            animate.Visible = true;
-            animate.Size = new Size(55, 23);
-            animate.Location = new Point(11, 72);
-            animate.Click += new EventHandler(this.animateClick);
-            this.Controls.Add(animate);
+            //Button align = new Button();
+            //align.Text = "align-content";
+            //align.Visible = true;
+            //align.Size = new Size(80, 23);
+            //align.Location = new Point(66, 72);
+            //align.Click += new System.EventHandler(this.align_Click);
+            //this.Controls.Add(align);
 
-            Button display = new Button();
-            display.Text = "display";
-            display.Visible = true;
-            display.Size = new Size(55, 23);
-            display.Location = new Point(11, 48);
-            display.Click += new EventHandler(this.displayClick);
-            this.Controls.Add(display);
+            //Button animate = new Button();
+            //animate.Text = "animate";
+            //animate.Visible = true;
+            //animate.Size = new Size(55, 23);
+            //animate.Location = new Point(11, 72);
+            //animate.Click += new EventHandler(this.animateClick);
+            //this.Controls.Add(animate);
 
-            Button box = new Button();
-            box.Text = "box-sizing";
-            box.Visible = true;
-            box.Size = new Size(80, 23);
-            box.Location = new Point(66, 48);
-            box.Click += new EventHandler(this.boxClick);
-            this.Controls.Add(box);
+            //Button display = new Button();
+            //display.Text = "display";
+            //display.Visible = true;
+            //display.Size = new Size(55, 23);
+            //display.Location = new Point(11, 48);
+            //display.Click += new EventHandler(this.displayClick);
+            //this.Controls.Add(display);
 
-            Button shadow = new Button();
-            shadow.Text = "box-shadow";
-            shadow.Size = new Size(80, 23);
-            shadow.Location = new Point(146, 48);
-            shadow.Click += new EventHandler(this.shadowClick);
-            this.Controls.Add(shadow);
+            //Button box = new Button();
+            //box.Text = "box-sizing";
+            //box.Visible = true;
+            //box.Size = new Size(80, 23);
+            //box.Location = new Point(66, 48);
+            //box.Click += new EventHandler(this.boxClick);
+            //this.Controls.Add(box);
 
-            Button listStyle = new Button();
-            listStyle.Text = "list-style";
-            listStyle.Size = new Size(70, 23);
-            listStyle.Location = new Point(226, 48);
-            listStyle.Click += new EventHandler(this.listStyle_Click);
-            this.Controls.Add(listStyle);
+            //Button shadow = new Button();
+            //shadow.Text = "box-shadow";
+            //shadow.Size = new Size(80, 23);
+            //shadow.Location = new Point(146, 48);
+            //shadow.Click += new EventHandler(this.shadowClick);
+            //this.Controls.Add(shadow);
 
-            Button captionSide = new Button();
-            captionSide.Text = "caption-side";
-            captionSide.Size = new Size(80, 23);
-            captionSide.Location = new Point(296, 48);
-            captionSide.Click += new EventHandler(this.captionSide_Click);
-            this.Controls.Add(captionSide);
+            //Button listStyle = new Button();
+            //listStyle.Text = "list-style";
+            //listStyle.Size = new Size(70, 23);
+            //listStyle.Location = new Point(226, 48);
+            //listStyle.Click += new EventHandler(this.listStyle_Click);
+            //this.Controls.Add(listStyle);
 
-            Button elementSizes = new Button();
-            elementSizes.Text = "element-size";
-            elementSizes.Size = new Size(80, 23);
-            elementSizes.Location = new Point(376, 48);
-            elementSizes.Click += new EventHandler(this.elementSizes_Click);
-            this.Controls.Add(elementSizes);
+            //Button captionSide = new Button();
+            //captionSide.Text = "caption-side";
+            //captionSide.Size = new Size(80, 23);
+            //captionSide.Location = new Point(296, 48);
+            //captionSide.Click += new EventHandler(this.captionSide_Click);
+            //this.Controls.Add(captionSide);
 
-            Button transition = new Button();
-            transition.Text = "transition";
-            transition.Size = new Size(80, 23);
-            transition.Location = new Point(456, 48);
-            transition.Click += new EventHandler(this.transition_Click);
-            this.Controls.Add(transition);
+            //Button elementSizes = new Button();
+            //elementSizes.Text = "element-size";
+            //elementSizes.Size = new Size(80, 23);
+            //elementSizes.Location = new Point(376, 48);
+            //elementSizes.Click += new EventHandler(this.elementSizes_Click);
+            //this.Controls.Add(elementSizes);
 
-            Button lrtb = new Button();
-            lrtb.Text = "left-right-top-bottom";
-            lrtb.Size = new Size(120, 23);
-            lrtb.Location = new Point(591, 48);
-            lrtb.Click += new EventHandler(this.lrtb_Click);
-            this.Controls.Add(lrtb);
+            //Button transition = new Button();
+            //transition.Text = "transition";
+            //transition.Size = new Size(80, 23);
+            //transition.Location = new Point(456, 48);
+            //transition.Click += new EventHandler(this.transition_Click);
+            //this.Controls.Add(transition);
 
-            Button filter = new Button();
-            filter.Text = "filters";
-            filter.Size = new Size(55, 23);
-            filter.Location = new Point(536, 48);
-            filter.Click += new EventHandler(this.filter_Click);
-            this.Controls.Add(filter);
+            //Button lrtb = new Button();
+            //lrtb.Text = "left-right-top-bottom";
+            //lrtb.Size = new Size(120, 23);
+            //lrtb.Location = new Point(591, 48);
+            //lrtb.Click += new EventHandler(this.lrtb_Click);
+            //this.Controls.Add(lrtb);
 
-            Button columns = new Button();
-            columns.Text = "column";
-            columns.Size = new Size(110, 23);
-            columns.Location = new Point(711, 48);
-            columns.Click += new EventHandler(this.columns_Click);
-            this.Controls.Add(columns);
+            //Button filter = new Button();
+            //filter.Text = "filters";
+            //filter.Size = new Size(55, 23);
+            //filter.Location = new Point(536, 48);
+            //filter.Click += new EventHandler(this.filter_Click);
+            //this.Controls.Add(filter);
 
-            Button overflow = new Button();
-            overflow.Text = "overflow";
-            overflow.Size = new Size(65, 23);
-            overflow.Location = new Point(11, 25);
-            overflow.Click += new EventHandler(this.overflow_Click);
-            this.Controls.Add(overflow);
+            //Button columns = new Button();
+            //columns.Text = "column";
+            //columns.Size = new Size(110, 23);
+            //columns.Location = new Point(711, 48);
+            //columns.Click += new EventHandler(this.columns_Click);
+            //this.Controls.Add(columns);
 
-            Button pageBreak = new Button();
-            pageBreak.Text = "page-break";
-            pageBreak.Size = new Size(70, 23);
-            pageBreak.Location = new Point(76, 25);
-            pageBreak.Click += new EventHandler(this.pageBreak_Click);
-            this.Controls.Add(pageBreak);
+            //Button overflow = new Button();
+            //overflow.Text = "overflow";
+            //overflow.Size = new Size(65, 23);
+            //overflow.Location = new Point(11, 25);
+            //overflow.Click += new EventHandler(this.overflow_Click);
+            //this.Controls.Add(overflow);
 
-            Button transform = new Button();
-            transform.Text = "transform";
-            transform.Size = new Size(65, 23);
-            transform.Location = new Point(146, 25);
-            transform.Click += new EventHandler(this.transform_Click);
-            this.Controls.Add(transform);
+            //Button pageBreak = new Button();
+            //pageBreak.Text = "page-break";
+            //pageBreak.Size = new Size(70, 23);
+            //pageBreak.Location = new Point(76, 25);
+            //pageBreak.Click += new EventHandler(this.pageBreak_Click);
+            //this.Controls.Add(pageBreak);
 
-            Button word = new Button();
-            word.Text = "word";
-            word.Size = new Size(45, 23);
-            word.Location = new Point(211, 25);
-            word.Click += new EventHandler(this.word_Click);
-            this.Controls.Add(word);
+            //Button transform = new Button();
+            //transform.Text = "transform";
+            //transform.Size = new Size(65, 23);
+            //transform.Location = new Point(146, 25);
+            //transform.Click += new EventHandler(this.transform_Click);
+            //this.Controls.Add(transform);
 
-            Button visibility = new Button();
-            visibility.Text = "visibility";
-            visibility.Size = new Size(60, 23);
-            visibility.Location = new Point(256, 25);
-            visibility.Click += new EventHandler(this.visibility_Click);
-            this.Controls.Add(visibility);
+            //Button word = new Button();
+            //word.Text = "word";
+            //word.Size = new Size(45, 23);
+            //word.Location = new Point(211, 25);
+            //word.Click += new EventHandler(this.word_Click);
+            //this.Controls.Add(word);
 
-            Button quotes = new Button();
-            quotes.Text = "quotes";
-            quotes.Size = new Size(50, 23);
-            quotes.Location = new Point(316, 25);
-            quotes.Click += new EventHandler(this.quotes_Click);
-            this.Controls.Add(quotes);
+            //Button visibility = new Button();
+            //visibility.Text = "visibility";
+            //visibility.Size = new Size(60, 23);
+            //visibility.Location = new Point(256, 25);
+            //visibility.Click += new EventHandler(this.visibility_Click);
+            //this.Controls.Add(visibility);
 
-            Button white = new Button();
-            white.Text = "white";
-            white.Size = new Size(45, 23);
-            white.Location = new Point(366, 25);
-            white.Click += new EventHandler(this.white_Click);
-            this.Controls.Add(white);
+            //Button quotes = new Button();
+            //quotes.Text = "quotes";
+            //quotes.Size = new Size(50, 23);
+            //quotes.Location = new Point(316, 25);
+            //quotes.Click += new EventHandler(this.quotes_Click);
+            //this.Controls.Add(quotes);
 
-            Button resize = new Button();
-            resize.Text = "resize";
-            resize.Size = new Size(50, 23);
-            resize.Location = new Point(411, 25);
-            resize.Click += new EventHandler(this.resize_Click);
-            this.Controls.Add(resize);
+            //Button white = new Button();
+            //white.Text = "white";
+            //white.Size = new Size(45, 23);
+            //white.Location = new Point(366, 25);
+            //white.Click += new EventHandler(this.white_Click);
+            //this.Controls.Add(white);
 
-            Button letterspacing = new Button();
-            letterspacing.Text = "letter-spacing";
-            letterspacing.Size = new Size(85, 23);
-            letterspacing.Location = new Point(461, 25);
-            letterspacing.Click += new EventHandler(this.letterspacing_Click);
-            this.Controls.Add(letterspacing);
+            //Button resize = new Button();
+            //resize.Text = "resize";
+            //resize.Size = new Size(50, 23);
+            //resize.Location = new Point(411, 25);
+            //resize.Click += new EventHandler(this.resize_Click);
+            //this.Controls.Add(resize);
 
-            Button cursor = new Button();
-            cursor.Text = "cursor";
-            cursor.Size = new Size(50, 23);
-            cursor.Location = new Point(546, 25);
-            cursor.Click += new EventHandler(this.cursor_Click);
-            this.Controls.Add(cursor);
+            //Button letterspacing = new Button();
+            //letterspacing.Text = "letter-spacing";
+            //letterspacing.Size = new Size(85, 23);
+            //letterspacing.Location = new Point(461, 25);
+            //letterspacing.Click += new EventHandler(this.letterspacing_Click);
+            //this.Controls.Add(letterspacing);
 
-            Button clear = new Button();
-            clear.Text = "clear";
-            clear.Size = new Size(50, 23);
-            clear.Location = new Point(596, 25);
-            clear.Click += new EventHandler(this.clear_Click);
-            this.Controls.Add(clear);
+            //Button cursor = new Button();
+            //cursor.Text = "cursor";
+            //cursor.Size = new Size(50, 23);
+            //cursor.Location = new Point(546, 25);
+            //cursor.Click += new EventHandler(this.cursor_Click);
+            //this.Controls.Add(cursor);
 
-            Button objectfit = new Button();
-            objectfit.Text = "object-fit";
-            objectfit.Size = new Size(65, 23);
-            objectfit.Location = new Point(646, 25);
-            objectfit.Click += new EventHandler(this.objectfit_Click);
-            this.Controls.Add(objectfit);
+            //Button clear = new Button();
+            //clear.Text = "clear";
+            //clear.Size = new Size(50, 23);
+            //clear.Location = new Point(596, 25);
+            //clear.Click += new EventHandler(this.clear_Click);
+            //this.Controls.Add(clear);
 
-            Button content = new Button();
-            content.Text = "content";
-            content.Size = new Size(55, 23);
-            content.Location = new Point(711, 25);
-            content.Click += new EventHandler(this.content_Click);
-            this.Controls.Add(content);
+            //Button objectfit = new Button();
+            //objectfit.Text = "object-fit";
+            //objectfit.Size = new Size(65, 23);
+            //objectfit.Location = new Point(646, 25);
+            //objectfit.Click += new EventHandler(this.objectfit_Click);
+            //this.Controls.Add(objectfit);
 
-            Button counter = new Button();
-            counter.Text = "counter";
-            counter.Size = new Size(55, 23);
-            counter.Location = new Point(766, 25);
-            counter.Click += new EventHandler(this.counter_Click);
-            this.Controls.Add(counter);
+            //Button content = new Button();
+            //content.Text = "content";
+            //content.Size = new Size(55, 23);
+            //content.Location = new Point(711, 25);
+            //content.Click += new EventHandler(this.content_Click);
+            //this.Controls.Add(content);
+
+            //Button counter = new Button();
+            //counter.Text = "counter";
+            //counter.Size = new Size(55, 23);
+            //counter.Location = new Point(766, 25);
+            //counter.Click += new EventHandler(this.counter_Click);
+            //this.Controls.Add(counter);
         }
         private void counter_Click(object sender, EventArgs e)
         {
@@ -14924,7 +15405,6 @@ namespace Loxie
         }
         private void blackBgTSMI_Click(object sender, EventArgs e)
         {
-            
             textArea.BackColor = Color.Black;
             textArea.ForeColor = Color.White;
             fileToolStripMenuItem1.ForeColor = System.Drawing.Color.DarkGray;
@@ -14977,6 +15457,7 @@ namespace Loxie
             əlaqəToolStripMenuItem.ForeColor = System.Drawing.Color.DarkGray;
             loadStyleToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             loadStyleToolStripMenuItem.ForeColor = System.Drawing.Color.DarkGray;
+            syntax.ForeColor = Color.DarkGray;
             var ctrl = (Control)this;
             var frm = ctrl.FindForm();
             Label label = null;
@@ -15016,7 +15497,15 @@ namespace Loxie
                     }
                 }
             }
-            
+            if(this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "cssMenu") != null)
+            {
+                this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "cssMenu").BackgroundImage = Loxie.Properties.Resources.oavv3DC;
+            }
+            if (this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu") != null)
+            {
+                this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu").BackgroundImage = Loxie.Properties.Resources.oavv3DC;
+            }
+            //Loxie.Properties.Resources.oavv3DC
             this.BackgroundImage = global::Loxie.Properties.Resources.oavv3DC;
             this.menuStrip1.BackgroundImage = global::Loxie.Properties.Resources.oavv3DC;
         }
@@ -15076,6 +15565,7 @@ namespace Loxie
             əlaqəToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             loadStyleToolStripMenuItem.BackColor = System.Drawing.Color.Transparent;
             loadStyleToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            syntax.ForeColor = Color.Black;
             var ctrl = (Control)this;
             var frm = ctrl.FindForm();
             Label label = null;
@@ -15115,8 +15605,18 @@ namespace Loxie
                     }
                 }
             }
+            if (this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "cssMenu") != null)
+            {
+                this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "cssMenu").BackgroundImage = null;
+                this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "cssMenu").BackColor = Color.Transparent;
+            }
+            if (this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu") != null)
+            {
+                this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu").BackgroundImage = null;
+                this.Controls.OfType<TableLayoutPanel>().FirstOrDefault(y => y.Name == "tableMenu").BackColor = Color.Transparent;
+            }
 
-         }
+        }
         private void subBtn_Click(object sender, EventArgs e)
         {
             textArea.SelectedText = string.Format("<sub>{0}</sub> \n", textArea.SelectedText);
