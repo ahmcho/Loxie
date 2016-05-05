@@ -417,8 +417,7 @@
             // 
             // tableMenu
             // 
-            this.tableMenu.BackColor = System.Drawing.Color.Black;
-            this.tableMenu.BackgroundImage = global::Loxie.Properties.Resources.oavv3DC;
+            this.tableMenu.BackColor = System.Drawing.Color.Transparent;
             this.tableMenu.ColumnCount = 1;
             this.tableMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableMenu.Controls.Add(this.tabControl1, 0, 0);
@@ -450,7 +449,6 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage1.BackgroundImage = global::Loxie.Properties.Resources.oavv3DC;
             this.tabPage1.Controls.Add(this.button15);
             this.tabPage1.Controls.Add(this.button14);
             this.tabPage1.Controls.Add(this.button13);
@@ -625,7 +623,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.tabPage2.BackColor = System.Drawing.Color.Transparent;
             this.tabPage2.Controls.Add(this.button30);
             this.tabPage2.Controls.Add(this.button29);
             this.tabPage2.Controls.Add(this.button28);
@@ -800,7 +798,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.BackColor = System.Drawing.Color.Black;
+            this.tabPage3.BackColor = System.Drawing.Color.Transparent;
             this.tabPage3.Controls.Add(this.button37);
             this.tabPage3.Controls.Add(this.button36);
             this.tabPage3.Controls.Add(this.button35);
