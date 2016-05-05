@@ -8519,7 +8519,7 @@ namespace Loxie
             label2.Font = new System.Drawing.Font("Palatino Linotype", 9F);
             label2.Location = new System.Drawing.Point(252, 33);
             label2.Size = new System.Drawing.Size(199, 17);
-            label2.Text = "Version 0.0.0.1 prealpha (build 423)";
+            label2.Text = "Version 0.0.0.1 (build 500)";
             aboutPanel.Controls.Add(label2);
 
             Label label3 = new Label();
